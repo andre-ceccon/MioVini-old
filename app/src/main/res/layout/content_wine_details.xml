@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".view.WineDetailsActivity"
+        tools:shIn="@layout/activity_wine_details">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/datails_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:id="@+id/iv_wine"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="4dp"
+                android:onClick="callImageActiity"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fl_proxy_container"
+                app:srcCompat="@drawable/logo" />
+
+        <RatingBar
+                android:id="@+id/rating"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="12dp"
+                android:theme="@style/classificacao"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_wine"
+                app:layout_constraintTop_toBottomOf="@+id/fl_proxy_container" />
+
+        <CheckBox
+                android:id="@+id/cb_bookmark"
+                style="@style/TitleTextViewDetalhesForm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:onClick="saveBookmark"
+                android:text="@string/field_bookmark"
+                app:layout_constraintEnd_toEndOf="@+id/ibt_increaseWineHouse"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <ImageButton
+                android:id="@+id/ibt_increaseWineHouse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="?android:selectableItemBackground"
+                android:onClick="increaseWineHouse"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_wineHouse"
+                app:layout_constraintStart_toEndOf="@+id/tv_wineHouse"
+                app:layout_constraintTop_toTopOf="@+id/tv_wineHouse"
+                app:srcCompat="@drawable/ic_add_black" />
+
+        <ImageButton
+                android:id="@+id/ibt_decreaseWineHouse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:background="?android:selectableItemBackground"
+                android:onClick="decreaseWineHouse"
+                app:layout_constraintBottom_toBottomOf="@+id/ibt_increaseWineHouse"
+                app:layout_constraintStart_toEndOf="@+id/ibt_increaseWineHouse"
+                app:layout_constraintTop_toTopOf="@+id/ibt_increaseWineHouse"
+                app:srcCompat="@drawable/ic_remove_black" />
+
+        <ImageButton
+                android:id="@+id/ibt_purchase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:background="?android:selectableItemBackground"
+                android:onClick="openDialogPurchase"
+                app:layout_constraintBottom_toBottomOf="@+id/cb_bookmark"
+                app:layout_constraintEnd_toEndOf="@+id/ibt_decreaseWineHouse"
+                app:layout_constraintStart_toEndOf="@+id/cb_bookmark"
+                app:layout_constraintTop_toTopOf="@+id/cb_bookmark"
+                app:srcCompat="@drawable/purchase" />
+
+        <ImageButton
+                android:id="@+id/ibt_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="?android:selectableItemBackground"
+                android:clickable="false"
+                android:onClick="callUpdateWine"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/rv_comment"
+                app:layout_constraintHorizontal_bias="0.264"
+                app:layout_constraintStart_toStartOf="@+id/rv_comment"
+                app:layout_constraintTop_toBottomOf="@+id/rv_comment"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/ic_edit" />
+
+        <ImageButton
+                android:id="@+id/ibt_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="?android:selectableItemBackground"
+                android:onClick="deleteWine"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/rv_comment"
+                app:layout_constraintHorizontal_bias="0.757"
+                app:layout_constraintStart_toStartOf="@+id/rv_comment"
+                app:layout_constraintTop_toBottomOf="@+id/rv_comment"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/ic_delete_forever" />
+
+        <TextView
+                android:id="@+id/textView9"
+                style="@style/TitleTextViewDetalhesForm"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="2dp"
+                android:text="@string/field_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cb_bookmark" />
+
+        <TextView
+                android:id="@+id/textView13"
+                style="@style/TitleTextViewDetalhesForm"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/field_country"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <TextView
+                android:id="@+id/textView21"
+                style="@style/TitleTextViewDetalhesForm"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/field_grape"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_producer" />
+
+        <TextView
+                android:id="@+id/textView23"
+                style="@style/TitleTextViewDetalhesForm"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                android:text="@string/field_temperature"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_country"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <TextView
+                android:id="@+id/textView26"
+                style="@style/TitleTextViewDetalhesForm"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/field_harmonization"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_grape" />
+
+        <TextView
+                android:id="@+id/textView28"
+                style="@style/TitleTextViewDetalhesForm"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/field_vintage"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_harmonization" />
+
+        <TextView
+                android:id="@+id/textView29"
+                style="@style/TitleTextViewDetalhesForm"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/field_wineHouse"
+                app:layout_constraintStart_toStartOf="@+id/rating"
+                app:layout_constraintTop_toBottomOf="@+id/rating" />
+
+        <TextView
+                android:id="@+id/textView31"
+                style="@style/TitleTextViewDetalhesForm"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/field_comments"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_safra" />
+
+        <TextView
+                android:id="@+id/tv_name"
+                style="@style/TextViewDetalhesForm"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <TextView
+                android:id="@+id/tv_country"
+                style="@style/TextViewDetalhesForm"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <TextView
+                android:id="@+id/tv_temperature"
+                style="@style/TextViewDetalhesForm"
+                android:layout_width="0dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView23"
+                app:layout_constraintStart_toStartOf="@+id/textView23"
+                app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+        <TextView
+                android:id="@+id/tv_harmonization"
+                style="@style/TextViewDetalhesForm"
+                android:layout_width="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.00"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+        <TextView
+                android:id="@+id/tv_wineHouse"
+                style="@style/TextViewDetalhesForm"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView29"
+                app:layout_constraintStart_toEndOf="@+id/textView29"
+                app:layout_constraintTop_toTopOf="@+id/textView29"
+                app:layout_constraintVertical_bias="0.6" />
+
+        <TextView
+                android:id="@+id/tv_grape"
+                style="@style/TextViewDetalhesForm"
+                android:layout_width="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="12dp"
+                android:ellipsize="end"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_safra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="12dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="12dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+        <TextView
+                android:id="@+id/textView"
+                style="@style/TitleTextViewDetalhesForm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/field_date_wineHouse"
+                app:layout_constraintStart_toStartOf="@+id/textView29"
+                app:layout_constraintTop_toBottomOf="@+id/ibt_increaseWineHouse" />
+
+        <TextView
+                android:id="@+id/tv_dateWineHouse"
+                style="@style/TitleTextViewDetalhesForm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+        <TextView
+                android:id="@+id/textView4"
+                style="@style/TitleTextViewDetalhesForm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/field_producer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_country" />
+
+        <TextView
+                android:id="@+id/tv_producer"
+                style="@style/TextViewDetalhesForm"
+                android:layout_width="0dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+<!--        <TextView-->
+<!--                android:id="@+id/tv_vintage"-->
+<!--                style="@style/TextViewDetalhesForm"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="4dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/textView28"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/textView28"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/textView28" />-->
+
+        <ProgressBar
+                android:id="@+id/fl_proxy_container"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:theme="@style/ProgressBarGreyProxy"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

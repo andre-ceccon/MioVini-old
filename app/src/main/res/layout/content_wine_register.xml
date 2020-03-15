@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+    <ImageView
+            android:id="@+id/iv_wine"
+            android:layout_width="120dp"
+            android:layout_height="112dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toEndOf="@+id/iv_wine"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_name"
+                style="@style/EditTextFormRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/field_name"
+                android:imeOptions="actionNext"
+                android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textAutoComplete"
+                android:maxLength="80"
+                android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout14"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_country"
+                style="@style/EditTextFormRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/field_country"
+                android:imeOptions="actionNext"
+                android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textAutoComplete"
+                android:maxLength="30"
+                android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout15"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout18"
+            app:layout_constraintTop_toBottomOf="@+id/ibt_purchase_history">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_winehouse"
+                style="@style/EditTextFormRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/field_wineHouse"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="3"
+                android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout16"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout17"
+            app:layout_constraintTop_toTopOf="@+id/textInputLayout15">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_temperature"
+                style="@style/EditTextFormRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/field_temperature"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="2"
+                android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout17"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout14"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout14"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout14">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_producer"
+                style="@style/EditTextFormRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/field_producer"
+                android:imeOptions="actionNext"
+                android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textAutoComplete"
+                android:maxLength="60"
+                android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout18"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout15">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_grape"
+                style="@style/EditTextFormRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/field_grape"
+                android:imeOptions="actionNext"
+                android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textAutoComplete"
+                android:maxLength="60" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout20"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout18">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_harmonization"
+                style="@style/EditTextFormRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/field_harmonization"
+                android:imeOptions="actionNext"
+                android:inputType="textAutoCorrect|textCapSentences|textAutoComplete|textMultiLine"
+                android:maxLength="60" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout21"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout20">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_comment"
+                style="@style/EditTextFormRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/field_comment"
+                android:imeOptions="actionDone"
+                android:inputType="textAutoCorrect|textCapSentences|textAutoComplete|textMultiLine"
+                android:maxLength="510"
+                android:overScrollMode="always"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RatingBar
+            android:id="@+id/rb_rating"
+            style="?android:attr/ratingBarStyleIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:isIndicator="false"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout21"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout21"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout21" />
+
+    <ImageButton
+            android:id="@+id/ibt_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?android:selectableItemBackground"
+            android:onClick="callCamera"
+            app:layout_constraintEnd_toEndOf="@+id/iv_wine"
+            app:layout_constraintHorizontal_bias="0.086"
+            app:layout_constraintStart_toStartOf="@+id/iv_wine"
+            app:layout_constraintTop_toBottomOf="@+id/iv_wine"
+            app:srcCompat="@drawable/ic_photo_camera" />
+
+    <ImageButton
+            android:id="@+id/ibt_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?android:selectableItemBackground"
+            android:onClick="callGallery"
+            app:layout_constraintEnd_toEndOf="@+id/iv_wine"
+            app:layout_constraintHorizontal_bias="0.891"
+            app:layout_constraintStart_toStartOf="@+id/iv_wine"
+            app:layout_constraintTop_toBottomOf="@+id/iv_wine"
+            app:srcCompat="@drawable/ic_photo_library" />
+
+    <ImageButton
+            android:id="@+id/ibt_purchase_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?android:selectableItemBackground"
+            android:onClick="callDialogPurchase"
+            app:layout_constraintEnd_toStartOf="@+id/ibt_gallery"
+            app:layout_constraintStart_toEndOf="@+id/ibt_camera"
+            app:layout_constraintTop_toBottomOf="@+id/ibt_gallery"
+            app:srcCompat="@drawable/purchase" />
+
+    <Button
+            android:id="@+id/bt_saveWine"
+            style="@style/ButtonForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:onClick="mainAction"
+            android:text="@string/save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout21"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout21"
+            app:layout_constraintTop_toBottomOf="@+id/rb_rating" />
+</androidx.constraintlayout.widget.ConstraintLayout>

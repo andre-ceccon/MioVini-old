@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <item android:title="@string/title_group_navigation_drawer_filter">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                        android:id="@+id/nav_in_the_cellar"
+                        android:icon="@drawable/ic_action_filter"
+                        android:title="@string/menu_item_in_the_cellar"/>
+
+                <item
+                        android:id="@+id/nav_rating"
+                        android:icon="@drawable/ic_action_filter"
+                        android:title="@string/menu_item_rating"/>
+
+                <item
+                        android:id="@+id/nav_bookmark"
+                        android:icon="@drawable/ic_action_filter"
+                        android:title="@string/menu_item_bookmark"/>
+
+                <item
+                        android:id="@+id/nav_name"
+                        android:icon="@drawable/ic_action_filter"
+                        android:title="@string/menu_item_name"/>
+
+                <item
+                        android:id="@+id/nav_country_of_origin"
+                        android:icon="@drawable/ic_action_filter"
+                        android:title="@string/menu_item_country_of_origin"/>
+            </group>
+        </menu>
+    </item>
+
+    <group android:checkableBehavior="none">
+        <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_settings_black"
+                android:title="@string/menu_item_settings"/>
+        <item
+                android:id="@+id/nav_privacy_policy"
+                android:icon="@drawable/ic_shield_lock_black"
+                android:title="@string/menu_item_privacy_policy"/>
+        <item
+                android:id="@+id/nav_sign_out"
+                android:icon="@drawable/ic_exit_run_black"
+                android:title="@string/menu_item_sign_out"/>
+    </group>
+</menu>

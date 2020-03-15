@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ll_info_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorLightYellowBox"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+    <ImageView
+            style="@style/ImageViewLink"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="0dp"
+            android:contentDescription="@string/ic_info_desc"
+            android:src="@drawable/ic_information_black"
+            android:tint="@color/colorText" />
+
+    <TextView
+            android:id="@+id/tv_info_block"
+            style="@style/TextViewLink"
+            android:text="@string/forgot_password_info"
+            android:textColor="@color/colorText" />
+
+    <TextView
+            android:id="@+id/tv_info_sync"
+            style="@style/TextViewLink"
+            android:layout_marginTop="10dp"
+            android:onClick="syncNow"
+            android:text="@string/sync_now"
+            android:visibility="gone" />
+</LinearLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3sp"
+        app:cardElevation="5sp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/iv_wine"
+                android:layout_width="84dp"
+                android:layout_height="92dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.458" />
+
+        <TextView
+                android:id="@+id/tv_name"
+                style="@style/TextViewDetalhesForm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="2dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/field_name"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toRightOf="@+id/iv_wine"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/tv_vintage"
+                style="@style/TextViewDetalhesForm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_name"
+                android:layout_marginTop="4dp"
+                android:text="@string/field_vintage"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_country"
+                app:layout_constraintEnd_toEndOf="@+id/tv_name"
+                app:layout_constraintStart_toStartOf="@+id/tv_wineHouse"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <RatingBar
+                android:id="@+id/ratingWine"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:numStars="5"
+                android:theme="@style/classificacao"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_wine"
+                app:layout_constraintEnd_toEndOf="@+id/winehouse_title"
+                app:layout_constraintStart_toStartOf="@+id/winehouse_title"
+                app:layout_constraintTop_toBottomOf="@+id/winehouse_title" />
+
+        <RatingBar
+                android:id="@+id/bookmark"
+                style="@style/Favoritos"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:numStars="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_vintage"
+                app:layout_constraintStart_toStartOf="@+id/tv_vintage"
+                app:layout_constraintTop_toBottomOf="@+id/tv_vintage" />
+
+        <TextView
+                android:id="@+id/tv_country"
+                style="@style/TextViewDetalhesForm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/field_country"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                app:layout_constraintStart_toStartOf="@+id/tv_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <TextView
+                android:id="@+id/tv_wineHouse"
+                style="@style/TextViewDetalhesForm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                app:layout_constraintBottom_toBottomOf="@+id/winehouse_title"
+                app:layout_constraintStart_toEndOf="@+id/winehouse_title"
+                app:layout_constraintTop_toTopOf="@+id/winehouse_title"
+                tools:ignore="RtlHardcoded" />
+
+        <TextView
+                android:id="@+id/winehouse_title"
+                style="@style/TitleTextViewDetalhesForm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/field_wineHouse"
+                app:layout_constraintStart_toStartOf="@+id/tv_country"
+                app:layout_constraintTop_toBottomOf="@+id/tv_country" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
