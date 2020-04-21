@@ -3,7 +3,6 @@ package vinho.andre.android.com.gerenciadorvinho.view
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
@@ -42,11 +41,24 @@ class WineDetailsActivity :
     private lateinit var purchaseDialogUtil: PurchaseDialogUtil
     private lateinit var presenter: WineDetailsPresenterInterface
 
+    private fun getWineRegisterIntent(): Intent {
+        return Intent(
+            this,
+            WineRegisterActivity::class.java
+        ).putExtra(
+            Wine.ParcelableWine,
+            wine
+        ).putExtra(
+            WineComplement.ParcelableWineComplement,
+            wineComplement
+        )
+    }
+
     fun deleteWine(
         view: View
     ) {
         dialogForConfirmationOperation(
-            wine.id,
+            wine.wineId,
             wine.name,
             Wine.UpdateWine
         )
@@ -56,7 +68,7 @@ class WineDetailsActivity :
         view: View
     ) {
         presenter.saveBookmark(
-            wine.id,
+            wine.wineId,
             this,
             cb_bookmark.isChecked
         )
@@ -66,16 +78,7 @@ class WineDetailsActivity :
         view: View
     ) {
         startActivity(
-            Intent(
-                this,
-                WineRegisterActivity::class.java
-            ).putExtra(
-                Wine.ParcelableWine,
-                wine
-            ).putExtra(
-                WineComplement.ParcelableWineComplement,
-                wineComplement
-            )
+            getWineRegisterIntent()
         )
         finish()
     }
@@ -102,10 +105,10 @@ class WineDetailsActivity :
         val wineHouse: Int = wine.wineHouse
         if (wineHouse > 0) {
             presenter.modifyWineHouse(
-                wine.id,
+                wine.wineId,
                 wineHouse - 1,
                 this,
-                wineComplement.id
+                wineComplement.wineComplementId
             )
         }
     }
@@ -114,12 +117,12 @@ class WineDetailsActivity :
         view: View
     ) {
         val wineHouse: Int = wine.wineHouse
-        if (wineHouse < 999999) {
+        if (wineHouse < 999) {
             presenter.modifyWineHouse(
-                wine.id,
+                wine.wineId,
                 wineHouse + 1,
                 this,
-                wineComplement.id
+                wineComplement.wineComplementId
             )
         }
     }
@@ -145,7 +148,7 @@ class WineDetailsActivity :
             R.layout.dialog_list_preco
         )
 
-        wine = intent.getParcelableExtra(Wine.ParcelableWine)
+        wine = intent.getParcelableExtra(Wine.ParcelableWine)!!
     }
 
     override fun onOptionsItemSelected(
@@ -156,6 +159,13 @@ class WineDetailsActivity :
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (intent.getStringExtra(Purchase.newPurchase) != null) {
+            openDialogPurchase(null)
+        }
     }
 
     override fun onResume() {
@@ -224,7 +234,7 @@ class WineDetailsActivity :
         comment: Comment
     ) {
         dialogForConfirmationOperation(
-            comment.id,
+            comment.commentId,
             comment.comment,
             Comment.updateComment
         )
@@ -234,7 +244,7 @@ class WineDetailsActivity :
         purchase: Purchase
     ) {
         dialogForConfirmationOperation(
-            purchase.id,
+            purchase.purchaseId,
             DataUtil().dateToString(purchase.date),
             Purchase.updatePurchase
         )
@@ -244,21 +254,12 @@ class WineDetailsActivity :
         comment: Comment
     ) {
         startActivity(
-            Intent(
-                this,
-                WineRegisterActivity::class.java
-            ).putExtra(
-                Wine.ParcelableWine,
-                wine
-            ).putExtra(
-                WineComplement.ParcelableWineComplement,
-                wineComplement
-            ).putExtra(
-                Comment.ParcelableComment,
-                comment
-            )
+            getWineRegisterIntent()
+                .putExtra(
+                    Comment.ParcelableComment,
+                    comment
+                )
         )
-
         finish()
     }
 
@@ -293,10 +294,9 @@ class WineDetailsActivity :
         }
 
         adapterPurchases!!.startListening()
+        adapterPreparationVintage()
 
-        /*To close proxy of dialog is on this class showProxy()*/
-        purchaseDialogUtil.showProxy(true)
-        runOnUiThread{
+        runOnUiThread {
             purchaseDialogUtil.showDialog(true)
         }
     }
@@ -307,21 +307,27 @@ class WineDetailsActivity :
         purchaseDialogUtil.showDialog(false)
 
         startActivity(
-            Intent(
-                this,
-                WineRegisterActivity::class.java
-            ).putExtra(
-                Wine.ParcelableWine,
-                wine
-            ).putExtra(
-                WineComplement.ParcelableWineComplement,
-                wineComplement
-            ).putExtra(
-                Purchase.ParcelablePurchase,
-                purchase
-            )
+            getWineRegisterIntent()
+                .putExtra(
+                    Purchase.ParcelablePurchase,
+                    purchase
+                )
         )
+        finish()
+    }
 
+    fun callNewPurchase(
+        view: View? = null
+    ) {
+        purchaseDialogUtil.showDialog(false)
+
+        startActivity(
+            getWineRegisterIntent()
+                .putExtra(
+                    Purchase.newPurchase,
+                    Purchase.newPurchase
+                )
+        )
         finish()
     }
 
@@ -391,8 +397,17 @@ class WineDetailsActivity :
     override fun modifyTitleDialogPurchase(
         itemCount: Int
     ) {
-        if (itemCount == 0) purchaseDialogUtil.setTextWithoutPurchaseRecord()
-        else purchaseDialogUtil.setTextTitleInDetailActivity()
+        if (itemCount == 0) {
+            purchaseDialogUtil.setTextWithoutPurchaseRecord()
+            purchaseDialogUtil.showRecycler(
+                false
+            )
+        } else {
+            purchaseDialogUtil.setTextTitleInDetailActivity()
+            purchaseDialogUtil.showRecycler(
+                true
+            )
+        }
     }
 
     override fun getContext(): Context = this
@@ -400,8 +415,6 @@ class WineDetailsActivity :
     override fun finishDetailActivity() = finish()
 
     private fun setTextWine() {
-        Log.i("MAIN", "WineID ${wine.id}")
-
         tv_name.text = wine.name
         rating.rating = wine.rating
         tv_country.text = wine.country
@@ -421,7 +434,7 @@ class WineDetailsActivity :
 
         /*Baixa o restante das informações do vinho*/
         presenter.retriveWineComplement(
-            wine.id
+            wine.wineId
         )
 
         /* Baixa os Comentarios */
@@ -433,7 +446,7 @@ class WineDetailsActivity :
         val adapter = VintageAdapter(
             this,
             DBHelper(this).getVintage(
-                wine.id
+                wine.wineId
             )
         )
 
@@ -445,7 +458,7 @@ class WineDetailsActivity :
             CommentAdapter(
                 presenter
                     .getFirestoreRecyclerOptionsComments(
-                        wine.id
+                        wine.wineId
                     ),
                 this
             )
@@ -459,7 +472,7 @@ class WineDetailsActivity :
             PurchaseAdapter(
                 presenter
                     .getFirestoreRecyclerOptionsPurchases(
-                        wine.id
+                        wine.wineId
                     ),
                 this
             )
@@ -484,7 +497,6 @@ class WineDetailsActivity :
                 getString(R.string.dialog_message_delete, information)
             )
             .setPositiveButton(getString(R.string.yes_button)) { _, _ ->
-                blockFields(true)
                 when (whichOperation) {
                     Wine.UpdateWine -> {
                         presenter.deleteWine(
@@ -496,14 +508,14 @@ class WineDetailsActivity :
                     Purchase.updatePurchase -> {
                         closePurchaseDialog(null)
                         presenter.deletePurchase(
-                            wine.id,
+                            wine.wineId,
                             this,
                             id
                         )
                     }
                     Comment.updateComment -> {
                         presenter.deleteComment(
-                            wine.id,
+                            wine.wineId,
                             this,
                             id
                         )

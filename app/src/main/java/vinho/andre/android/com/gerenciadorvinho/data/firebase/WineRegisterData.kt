@@ -211,7 +211,7 @@ class WineRegisterData(
 
         getWinesCollection()
             .document(
-                wine.id
+                wine.wineId
             )
             .update(
                 Wine.FieldImage,
@@ -268,7 +268,7 @@ class WineRegisterData(
             wineReference =
                 getWinesCollection().document()
 
-            wine.id = wineReference.id
+            wine.wineId = wineReference.id
 
             batch.set(
                 wineReference,
@@ -278,7 +278,7 @@ class WineRegisterData(
             wineReference =
                 getWinesCollection()
                     .document(
-                        wine.id
+                        wine.wineId
                     )
 
             batch.update(
@@ -296,17 +296,17 @@ class WineRegisterData(
         if (isUpdateOf != null && isUpdateOf == Comment.updateComment) {
             val commentReference =
                 getWineCommentsCellection(
-                    wine.id
+                    wine.wineId
                 ).document(
-                    comment.id
+                    comment.commentId
                 )
             batch.update(commentReference, comment.getMap())
         } else {
             val commentReference =
                 getWineCommentsCellection(
-                    wine.id
+                    wine.wineId
                 ).document()
-            comment.id = commentReference.id
+            comment.commentId = commentReference.id
             batch.set(commentReference, comment.getMap())
         }
 
@@ -319,17 +319,17 @@ class WineRegisterData(
         if (isUpdateOf != null && isUpdateOf == Purchase.updatePurchase) {
             val purchaseReference =
                 getWinePurchasesCellection(
-                    wine.id
+                    wine.wineId
                 ).document(
-                    purchase.id
+                    purchase.purchaseId
                 )
             batch.update(purchaseReference, purchase.getMap())
         } else {
             val purchaseReference =
                 getWinePurchasesCellection(
-                    wine.id
+                    wine.wineId
                 ).document()
-            purchase.id = purchaseReference.id
+            purchase.purchaseId = purchaseReference.id
             batch.set(purchaseReference, purchase.getMap())
         }
 
@@ -344,16 +344,16 @@ class WineRegisterData(
         if (isUpdateOf == null) {
             wineComplementReference =
                 getWinesComplementsCollection(
-                    wine.id
+                    wine.wineId
                 ).document()
 
-            wineComplement.id = wineComplementReference.id
+            wineComplement.wineComplementId = wineComplementReference.id
             batch.set(wineComplementReference, wineComplement.getMap())
         } else if (isUpdateOf == Wine.UpdateWine) {
             wineComplementReference = getWinesComplementsCollection(
-                wine.id
+                wine.wineId
             ).document(
-                wineComplement.id
+                wineComplement.wineComplementId
             )
             batch.update(wineComplementReference, wineComplement.getMap())
         }
@@ -364,43 +364,43 @@ class WineRegisterData(
     private fun saveOnSqlite() {
         val sqlite = DBHelper(context)
 
-        if (sqlite.hasWine(wine.id)) {
+        if (sqlite.hasWine(wine.wineId)) {
             sqlite.updateWine(wine)
             sqlite.updateWineComplement(
-                wine.id,
+                wine.wineId,
                 wineComplement
             )
         } else {
             sqlite.saveWine(wine)
             sqlite.saveWineComplement(
-                wine.id,
+                wine.wineId,
                 wineComplement
             )
         }
 
         if (purchase != null) {
-            if (sqlite.hasPurchase(purchase!!.id)) {
+            if (sqlite.hasPurchase(purchase!!.purchaseId)) {
                 sqlite.updatePurchase(
-                    wine.id,
+                    wine.wineId,
                     purchase!!
                 )
             } else {
                 sqlite.savePurchase(
-                    wine.id,
+                    wine.wineId,
                     purchase!!
                 )
             }
         }
 
         if (comment != null) {
-            if (sqlite.hasComment(comment!!.id)) {
+            if (sqlite.hasComment(comment!!.commentId)) {
                 sqlite.updateComment(
-                    wine.id,
+                    wine.wineId,
                     comment!!
                 )
             } else {
                 sqlite.saveComment(
-                    wine.id,
+                    wine.wineId,
                     comment!!
                 )
             }

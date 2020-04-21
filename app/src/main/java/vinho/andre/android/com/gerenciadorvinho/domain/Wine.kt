@@ -5,7 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Wine(
-    var id: String = "",
+    var wineId: String = "",
     var name: String = "",
     var country: String = "",
     var image: Map<String, String> = emptyMap(),
@@ -31,7 +31,7 @@ data class Wine(
 
         other as Wine
 
-        if (id != other.id) return false
+        if (wineId != other.wineId) return false
         if (name != other.name) return false
         if (country != other.country) return false
         if (image != other.image) return false
@@ -44,7 +44,7 @@ data class Wine(
     }
 
     override fun hashCode(): Int {
-        var result = id.hashCode()
+        var result = wineId.hashCode()
         result = 31 * result + name.hashCode()
         result = 31 * result + country.hashCode()
         result = 31 * result + image.hashCode()
@@ -57,7 +57,7 @@ data class Wine(
 
     fun getMap(): Map<String, Any> {
         val map = HashMap<String, Any>()
-        map["id"] = this.id
+        map["wineId"] = this.wineId
         map["name"] = this.name
         map["country"] = this.country
         map["image"] = this.image

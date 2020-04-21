@@ -106,7 +106,7 @@ class WineRegisterActivity :
         view: View? = null
     ) {
         purchaseDialogUtil.showDialog(false)
-        if (!TextUtils.isEmpty(isUpdateOf)) {
+        if (isUpdateOf.equals(Purchase.newPurchase)) {
             openDetailActivity()
         }
     }
@@ -128,7 +128,7 @@ class WineRegisterActivity :
                 }
                 !isEqualPurchase() && isUpdateOf != null &&
                         checkConnection(this) &&
-                        (isUpdateOf == Wine.UpdateWine || isUpdateOf == Purchase.updatePurchase) -> {
+                        (isUpdateOf == Purchase.newPurchase || isUpdateOf == Purchase.updatePurchase) -> {
 
                     purchaseDialogUtil.showDialog(false)
                     mainAction()
@@ -148,7 +148,7 @@ class WineRegisterActivity :
         val wine: Wine? = intent.getParcelableExtra(Wine.ParcelableWine)
         val layoutPurchase: View = purchaseDialogUtil.getLayoutPurchase()
         return Wine(
-            wine?.id ?: "",
+            wine?.wineId ?: "",
             et_name.text.toString().trim(),
             et_country.text.toString().trim(),
             wine?.image ?: mapOf(
@@ -173,7 +173,7 @@ class WineRegisterActivity :
     override fun getComment(): Comment {
         val comment: Comment? = intent.getParcelableExtra(Comment.ParcelableComment)
         return Comment(
-            comment?.id ?: "",
+            comment?.commentId ?: "",
             comment?.date ?: DataUtil().getCurrentDateTime(),
             et_comment.text.toString().trim()
         )
@@ -200,7 +200,7 @@ class WineRegisterActivity :
                 .isDate(
                     layoutPurchase.et_date.text.toString().trim()
                 ),
-            purchase?.id ?: "",
+            purchase?.purchaseId ?: "",
             layoutPurchase.et_store.text
                 .toString()
                 .trim(),
@@ -216,7 +216,7 @@ class WineRegisterActivity :
         val wineComplement: WineComplement? =
             intent.getParcelableExtra(WineComplement.ParcelableWineComplement)
         return WineComplement(
-            wineComplement?.id ?: "",
+            wineComplement?.wineComplementId ?: "",
             if (et_grape.text.isNullOrBlank()) {
                 ""
             } else {
@@ -307,9 +307,8 @@ class WineRegisterActivity :
                         imgOriginal
                     )
 
-                if (images.first().path.contains("Pictures/Camera")) {
-                    imgOriginal.delete()
-                }
+                val folder = File("/storage/emulated/0/Pictures/Camera")
+                folder.deleteRecursively()
 
                 image = ImageUtil(
                     imageResized.path,
@@ -509,7 +508,18 @@ class WineRegisterActivity :
             }
             getWineIntent() != null -> {
                 setTextWine()
-                isUpdateOf = Wine.UpdateWine
+
+                if (intent.getStringExtra(Purchase.newPurchase) != null) {
+                    isUpdateOf = Purchase.newPurchase
+                    blockFields(true)
+
+                    Handler().postDelayed({
+                        purchaseDialogUtil.showDialog(true)
+                    }, 500)
+                } else {
+                    isUpdateOf = Wine.UpdateWine
+                    ibt_purchase_history.visibility = View.INVISIBLE
+                }
             }
         }
     }
@@ -528,7 +538,7 @@ class WineRegisterActivity :
     private fun openDetailActivity(
         wine: Wine? = getWine()
     ) {
-        startActivity(
+        val intent =
             Intent(
                 this,
                 WineDetailsActivity::class.java
@@ -536,6 +546,16 @@ class WineRegisterActivity :
                 Wine.ParcelableWine,
                 wine
             )
+
+        if (isUpdateOf.equals(Purchase.newPurchase)) {
+            intent.putExtra(
+                Purchase.newPurchase,
+                Purchase.newPurchase
+            )
+        }
+
+        startActivity(
+            intent
         )
         finish()
     }

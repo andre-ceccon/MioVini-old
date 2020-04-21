@@ -6,7 +6,7 @@ import java.util.*
 
 @Parcelize
 open class WineComplement(
-    var id: String = "",
+    var wineComplementId: String = "",
     var grape: String = "",
     var harmonization: String = "",
     var temperature: Int = 0,
@@ -20,7 +20,7 @@ open class WineComplement(
 
     fun getMap(): Map<String, Any> {
         val map = HashMap<String, Any>()
-        map["id"] = this.id
+        map["wineComplementId"] = this.wineComplementId
         map["grape"] = this.grape
         map["harmonization"] = this.harmonization
         map["temperature"] = this.temperature
@@ -35,7 +35,7 @@ open class WineComplement(
 
         other as WineComplement
 
-        if (id != other.id) return false
+        if (wineComplementId != other.wineComplementId) return false
         if (grape != other.grape) return false
         if (harmonization != other.harmonization) return false
         if (temperature != other.temperature) return false
@@ -46,7 +46,7 @@ open class WineComplement(
     }
 
     override fun hashCode(): Int {
-        var result = id.hashCode()
+        var result = wineComplementId.hashCode()
         result = 31 * result + grape.hashCode()
         result = 31 * result + harmonization.hashCode()
         result = 31 * result + temperature
@@ -56,6 +56,6 @@ open class WineComplement(
     }
 
     override fun toString(): String {
-        return "WineComplement(id='$id', grape='$grape', harmonization='$harmonization', temperature=$temperature, producer='$producer', dateWineHouse=$dateWineHouse)"
+        return "WineComplement(id='$wineComplementId', grape='$grape', harmonization='$harmonization', temperature=$temperature, producer='$producer', dateWineHouse=$dateWineHouse)"
     }
 }

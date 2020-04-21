@@ -198,9 +198,15 @@
     <string name="title_alertDialog_without_wine">
         Ops
     </string>
+    <string name="title_firt_login">
+        Bem-vindo
+    </string>
     <string name="alert_message_dialogue_without_wine">
         Não há vinho(s) cadastrado(s) para exibir.
         Cadastre ou mude o filtro utilizado!
+    </string>
+    <string name="alert_menssage_firt_login">
+        Você não possui nenhum cadastro de vinho na sua adega, deseja cadastrar agora?
     </string>
     <string name="alert_information_sync_container">
         Última sincronização automática:
@@ -216,6 +222,9 @@
     </string>
     <string name="cancel_buttom">
         Agora não
+    </string>
+    <string name="change_filter">
+        Mudar filtro
     </string>
 
     <!-- Hint Detalhe e cadastro vinho -->
@@ -410,6 +419,9 @@
     </string>
     <string name="title_activity_connect_data">
         ConnectDataActivity
+    </string>
+    <string name="wrong_provider_to_change_password">
+        Disponível para login com email e senha apenas
     </string>
 
     <!-- ConfigProfileActivity -->

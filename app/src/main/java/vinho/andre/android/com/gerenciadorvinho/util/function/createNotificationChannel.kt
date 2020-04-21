@@ -17,7 +17,7 @@ fun createNotificationChannel(
                 context.getString(
                     R.string.app_name
                 ),
-                NotificationManager.IMPORTANCE_DEFAULT
+                NotificationManager.IMPORTANCE_LOW
             ).apply {
                 description = menssage
             }

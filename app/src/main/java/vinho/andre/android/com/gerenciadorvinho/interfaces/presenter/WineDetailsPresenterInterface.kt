@@ -55,7 +55,7 @@ interface WineDetailsPresenterInterface {
     )
 
     fun responseDelete(
-        task: Task<Void>,
+        task: Task<Void>?,
         whichItem: String
     )
 

@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/field_price"
                 android:inputType="numberDecimal"
-                android:maxLength="8" />
+                android:maxLength="6" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

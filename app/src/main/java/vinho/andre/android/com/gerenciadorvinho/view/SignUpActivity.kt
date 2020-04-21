@@ -78,8 +78,7 @@ class SignUpActivity :
 
     override fun isConstraintToSiblingView(
         isKeyBoardOpened: Boolean
-    ) =
-        isKeyBoardOpened || ScreenUtils.isLandscape()
+    ) = isKeyBoardOpened || ScreenUtils.isLandscape()
 
     override fun blockFields(
         status: Boolean

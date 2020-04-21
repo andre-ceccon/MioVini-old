@@ -33,6 +33,7 @@ class WineDetailsPresenter(
     ) {
         if (connectionValidation(context)) {
             view.showProxy(true)
+            view.blockFields(true)
             data.deleteWine(
                 idWine,
                 image
@@ -63,6 +64,7 @@ class WineDetailsPresenter(
     ) {
         if (connectionValidation(context)) {
             view.showProxy(true)
+            view.blockFields(true)
             data.deleteComment(
                 idWine,
                 idComment
@@ -103,13 +105,13 @@ class WineDetailsPresenter(
     }
 
     override fun responseDelete(
-        task: Task<Void>,
+        task: Task<Void>?,
         whichItem: String
     ) {
         view.showProxy(false)
         view.blockFields(false)
 
-        if (task.isSuccessful) {
+        if (task != null && task.isSuccessful) {
             when (whichItem) {
                 Comment.ParcelableComment -> {
                     view.snackBarFeedback(

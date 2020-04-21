@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.info_block.*
 import kotlinx.android.synthetic.main.proxy_screen.*
+import vinho.andre.android.com.gerenciadorvinho.BuildConfig
 import vinho.andre.android.com.gerenciadorvinho.R
 import vinho.andre.android.com.gerenciadorvinho.data.sqlite.DBHelper
 import vinho.andre.android.com.gerenciadorvinho.domain.User
@@ -103,27 +104,30 @@ class MainActivity :
         view: View? = null
     ) {
         val info: JobInfo = JobInfo.Builder(
-                WineSynchronization.JobId,
-                ComponentName(this, WineSynchronization::class.java)
-            ).setPersisted(true)
+            WineSynchronization.JobId,
+            ComponentName(this, WineSynchronization::class.java)
+        ).setPersisted(true)
             .setPeriodic(360 * 60 * 1000)
             .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
             .setRequiresCharging(false)
             .build()
 
         val scheduler: JobScheduler = getSystemService(JOB_SCHEDULER_SERVICE) as JobScheduler
-        if (scheduler.schedule(info) != JobScheduler.RESULT_SUCCESS) {
+        if (BuildConfig.DEBUG) {
             Toast.makeText(
                 this,
-                "Job scheduling failed",
+                String.format(
+                    "Job scheduling %s",
+                    if (scheduler.schedule(info) != JobScheduler.RESULT_SUCCESS) {
+                        "failed"
+                    } else {
+                        "start"
+                    }
+                ),
                 Toast.LENGTH_SHORT
             ).show()
         } else {
-            Toast.makeText(
-                this,
-                "Job scheduling start",
-                Toast.LENGTH_SHORT
-            ).show()
+            scheduler.schedule(info)
         }
     }
 
@@ -217,13 +221,13 @@ class MainActivity :
             )
         }
 
-        if (!isJobServiceOn(this)) {
+        val sp = SharedPreferencesUtil(this)
+
+        if (!sp.getIsNewUser() && !isJobServiceOn(this)) {
             callService()
         }
 
-        SharedPreferencesUtil(
-            this
-        ).getPreference()?.registerOnSharedPreferenceChangeListener(listener)
+        sp.getPreference()?.registerOnSharedPreferenceChangeListener(listener)
     }
 
     override fun onResume() {
@@ -374,7 +378,7 @@ class MainActivity :
                     adapterSearch!!.updateList(
                         if (query.isNotEmpty()) {
                             dbHelper.search(
-                                query
+                                query.trim()
                             )
                         } else {
                             emptyList()
@@ -393,7 +397,7 @@ class MainActivity :
                     adapterSearch!!.updateList(
                         if (query.isNotEmpty()) {
                             dbHelper.search(
-                                query
+                                query.trim()
                             )
                         } else {
                             emptyList()

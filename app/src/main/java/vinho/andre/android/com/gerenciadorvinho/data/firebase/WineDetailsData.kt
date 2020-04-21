@@ -260,21 +260,64 @@ class WineDetailsData(
     ) {
         getWinePurchasesCellection(
             idWine
-        ).document(
-            idPurchse
-        ).delete().addOnCompleteListener(
+        ).orderBy(
+            "date",
+            Query.Direction.DESCENDING
+        ).limit(
+            2
+        ).get().addOnCompleteListener(
             executor,
             OnCompleteListener {
                 if (it.isSuccessful) {
-                    sqlite.deletePurchase(idPurchse).toString()
-                }
+                    var purchase: Purchase? = null
 
-                presenter.responseDelete(
-                    it,
-                    Purchase.ParcelablePurchase
-                )
-            }
-        )
+                    for (document in it.result!!.documents) {
+                        if (document.id != idPurchse) {
+                            purchase = document.toObject(Purchase::class.java)!!
+                        }
+                    }
+
+                    val batch: WriteBatch = getFireStore().batch()
+
+                    batch.update(
+                        getWinesCollection().document(idWine),
+                        "vintage",
+                        if (purchase != null &&
+                            purchase.purchaseId == idPurchse
+                        ) {
+                            purchase.vintage
+                        } else {
+                            0
+                        }
+                    )
+
+                    batch.delete(
+                        getWinePurchasesCellection(
+                            idWine
+                        ).document(
+                            idPurchse
+                        )
+                    )
+
+                    batch.commit().addOnCompleteListener(
+                        executor,
+                        OnCompleteListener { commit ->
+                            if (commit.isSuccessful) {
+                                sqlite.deletePurchase(idPurchse)
+                            }
+
+                            presenter.responseDelete(
+                                commit,
+                                Purchase.ParcelablePurchase
+                            )
+                        })
+                } else {
+                    presenter.responseDelete(
+                        null,
+                        Purchase.ParcelablePurchase
+                    )
+                }
+            })
     }
 
     private fun deleteCollection(

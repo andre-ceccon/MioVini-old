@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.custom_title_purchase.view.*
+import kotlinx.android.synthetic.main.dialog_list_preco.view.*
 import kotlinx.android.synthetic.main.proxy_screen.view.*
 import kotlinx.android.synthetic.main.purchase_register_in_the_wine_register.view.*
 import vinho.andre.android.com.gerenciadorvinho.R
@@ -41,27 +42,22 @@ class PurchaseDialogUtil(
             setTextTitleInDetailActivity()
         }
 
-        purchaseDialog = AlertDialog
-            .Builder(
+        purchaseDialog =
+            AlertDialog.Builder(
                 context
-            )
-            .setCancelable(
+            ).setCancelable(
                 false
-            )
-            .setCustomTitle(
+            ).setCustomTitle(
                 layoutTitlePurchase
-            )
-            .setView(
+            ).setView(
                 layoutPurchase
-            )
-            .create()
+            ).create()
     }
 
     fun showDialog(
         status: Boolean
     ) {
         if (status)
-
             purchaseDialog.show()
         else
             purchaseDialog.dismiss()
@@ -90,5 +86,11 @@ class PurchaseDialogUtil(
                 View.VISIBLE
             else
                 View.GONE
+    }
+
+    fun showRecycler(
+        status: Boolean
+    ) {
+        layoutPurchase.rv_preco.visibility = if (status) View.VISIBLE else View.GONE
     }
 }

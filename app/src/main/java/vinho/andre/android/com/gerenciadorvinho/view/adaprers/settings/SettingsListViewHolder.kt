@@ -39,7 +39,13 @@ class SettingsListViewHolder(
         val activity = view.context as SettingsActivity
         val user = activity.getUser()
 
-        if (user.provaider == "password") {
+        if (item.label == activity.getString(R.string.setting_item_login) && user.provaider != "password") {
+            Toast.makeText(
+                activity.applicationContext,
+                view.context.getString(R.string.wrong_provider_to_change_password),
+                Toast.LENGTH_LONG
+            ).show()
+        } else {
             activity.startActivityForResult(
                 Intent(
                     activity,
@@ -50,12 +56,6 @@ class SettingsListViewHolder(
                 ),
                 SettingsActivity.idProfileActivity
             )
-        } else {
-            Toast.makeText(
-                activity.applicationContext,
-                "Disponivel para login com email e senha apenas",
-                Toast.LENGTH_LONG
-            ).show()
         }
     }
 }

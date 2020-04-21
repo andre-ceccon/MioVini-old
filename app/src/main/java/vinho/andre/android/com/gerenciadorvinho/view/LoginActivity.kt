@@ -59,7 +59,7 @@ class LoginActivity :
         et_password.setOnEditorActionListener(this)
 
         google_button.setOnClickListener {
-            signIn()
+            signInWithGoogle()
         }
 
         presenter = LoginPresenter(this)
@@ -96,7 +96,8 @@ class LoginActivity :
         )
     }
 
-    private fun signIn() {
+    private fun signInWithGoogle() {
+        showProxy(true)
         startActivityForResult(
             GoogleSignIn.getClient(
                 this,
@@ -220,6 +221,7 @@ class LoginActivity :
     }
 
     override fun callMainActivity() {
+        showProxy(false)
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }

@@ -184,9 +184,14 @@ class DBHelper(
     fun updateWine(
         wine: Wine
     ) {
-        if (hasWine(wine.id)) {
+        if (hasWine(wine.wineId)) {
             val db: SQLiteDatabase = this.writableDatabase
-            db.update(tableWine, valuesWine(wine), "${wineColumns[0]} = '" + wine.id + "'", null)
+            db.update(
+                tableWine,
+                valuesWine(wine),
+                "${wineColumns[0]} = '" + wine.wineId + "'",
+                null
+            )
             db.close()
         }
     }
@@ -235,7 +240,7 @@ class DBHelper(
         idWine: String,
         wineComplement: WineComplement
     ) {
-        if (hasWineComplement(wineComplement.id)) {
+        if (hasWineComplement(wineComplement.wineComplementId)) {
             val db: SQLiteDatabase = this.writableDatabase
             db.update(
                 tableWineComplement,
@@ -243,7 +248,7 @@ class DBHelper(
                     idWine,
                     wineComplement
                 ),
-                "${wineComplementColumns[0]} = '" + wineComplement.id + "'",
+                "${wineComplementColumns[0]} = '" + wineComplement.wineComplementId + "'",
                 null
             )
             db.close()
@@ -281,7 +286,7 @@ class DBHelper(
         idWine: String,
         purchase: Purchase
     ) {
-        if (hasPurchase(purchase.id)) {
+        if (hasPurchase(purchase.purchaseId)) {
             val db = this.writableDatabase
             db.update(
                 tablePurchase,
@@ -289,7 +294,7 @@ class DBHelper(
                     idWine,
                     purchase
                 ),
-                "${purchaseColumns[0]} = '" + purchase.id + "'", null
+                "${purchaseColumns[0]} = '" + purchase.purchaseId + "'", null
             )
             db.close()
         }
@@ -299,7 +304,7 @@ class DBHelper(
         idWine: String,
         comment: Comment
     ) {
-        if (hasComment(comment.id)) {
+        if (hasComment(comment.commentId)) {
             val db = this.writableDatabase
             db.update(
                 tableComments,
@@ -307,7 +312,7 @@ class DBHelper(
                     idWine,
                     comment
                 ),
-                "${commentsColumns[0]} = '" + comment.id + "'", null
+                "${commentsColumns[0]} = '" + comment.commentId + "'", null
             )
             db.close()
         }
@@ -456,7 +461,7 @@ class DBHelper(
             if (cursor.moveToFirst()) {
                 do {
                     val wine = Wine()
-                    wine.id = cursor.getString(cursor.getColumnIndex(wineColumns[0]))
+                    wine.wineId = cursor.getString(cursor.getColumnIndex(wineColumns[0]))
                     wine.name = cursor.getString(cursor.getColumnIndex(wineColumns[1]))
                     wine.image = mapOf(
                         Wine.NameImage to cursor.getString(cursor.getColumnIndex(wineColumns[3])),
@@ -583,7 +588,7 @@ class DBHelper(
         wine: Wine
     ): ContentValues {
         val values = ContentValues()
-        values.put(wineColumns[0], wine.id)
+        values.put(wineColumns[0], wine.wineId)
         values.put(wineColumns[1], wine.name)
         values.put(wineColumns[2], wine.country)
         values.put(wineColumns[3], wine.image[Wine.NameImage])
@@ -607,7 +612,7 @@ class DBHelper(
         wineComplement: WineComplement
     ): ContentValues {
         val values = ContentValues()
-        values.put(wineComplementColumns[0], wineComplement.id)
+        values.put(wineComplementColumns[0], wineComplement.wineComplementId)
         values.put(wineComplementColumns[1], idWine)
         values.put(wineComplementColumns[2], wineComplement.grape)
         values.put(wineComplementColumns[3], wineComplement.harmonization)
@@ -622,7 +627,7 @@ class DBHelper(
         purchase: Purchase
     ): ContentValues {
         val values = ContentValues()
-        values.put(purchaseColumns[0], purchase.id)
+        values.put(purchaseColumns[0], purchase.purchaseId)
         values.put(purchaseColumns[1], idWine)
         values.put(purchaseColumns[2], purchase.vintage)
         values.put(purchaseColumns[3], purchase.amount)
@@ -638,7 +643,7 @@ class DBHelper(
         comment: Comment
     ): ContentValues {
         val values = ContentValues()
-        values.put(commentsColumns[0], comment.id)
+        values.put(commentsColumns[0], comment.commentId)
         values.put(commentsColumns[1], idWine)
         values.put(commentsColumns[2], comment.date.toString())
         values.put(commentsColumns[3], comment.comment)

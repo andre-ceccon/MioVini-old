@@ -17,11 +17,12 @@
 
         <ImageView
                 android:id="@+id/iv_wine"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="100dp"
+                android:layout_height="122dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="4dp"
                 android:onClick="callImageActiity"
+                android:scaleType="fitXY"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fl_proxy_container"
                 app:srcCompat="@drawable/logo" />
@@ -47,8 +48,7 @@
                 android:layout_marginTop="4dp"
                 android:onClick="saveBookmark"
                 android:text="@string/field_bookmark"
-                app:layout_constraintEnd_toEndOf="@+id/ibt_increaseWineHouse"
-                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView29"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <ImageButton
@@ -65,9 +65,9 @@
 
         <ImageButton
                 android:id="@+id/ibt_decreaseWineHouse"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
+                android:layout_marginStart="28dp"
                 android:background="?android:selectableItemBackground"
                 android:onClick="decreaseWineHouse"
                 app:layout_constraintBottom_toBottomOf="@+id/ibt_increaseWineHouse"
@@ -79,14 +79,13 @@
                 android:id="@+id/ibt_purchase"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
                 android:background="?android:selectableItemBackground"
                 android:onClick="openDialogPurchase"
                 app:layout_constraintBottom_toBottomOf="@+id/cb_bookmark"
-                app:layout_constraintEnd_toEndOf="@+id/ibt_decreaseWineHouse"
-                app:layout_constraintStart_toEndOf="@+id/cb_bookmark"
+                app:layout_constraintEnd_toStartOf="@+id/ibt_decreaseWineHouse"
+                app:layout_constraintStart_toEndOf="@+id/ibt_increaseWineHouse"
                 app:layout_constraintTop_toTopOf="@+id/cb_bookmark"
-                app:srcCompat="@drawable/purchase" />
+                app:srcCompat="@drawable/ic_history_purchase" />
 
         <ImageButton
                 android:id="@+id/ibt_update"
@@ -179,7 +178,6 @@
         <TextView
                 android:id="@+id/textView29"
                 style="@style/TitleTextViewDetalhesForm"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/field_wineHouse"
                 app:layout_constraintStart_toStartOf="@+id/rating"
@@ -197,6 +195,7 @@
         <TextView
                 android:id="@+id/tv_name"
                 style="@style/TextViewDetalhesForm"
+                android:layout_width="0dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="12dp"
@@ -208,6 +207,7 @@
         <TextView
                 android:id="@+id/tv_country"
                 style="@style/TextViewDetalhesForm"
+                android:layout_width="0dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="2dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -291,8 +291,9 @@
                 style="@style/TitleTextViewDetalhesForm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="4dp"
                 android:text="@string/field_date_wineHouse"
+                app:layout_constraintEnd_toEndOf="@+id/ibt_increaseWineHouse"
                 app:layout_constraintStart_toStartOf="@+id/textView29"
                 app:layout_constraintTop_toBottomOf="@+id/ibt_increaseWineHouse" />
 
@@ -322,19 +323,20 @@
                 style="@style/TextViewDetalhesForm"
                 android:layout_width="0dp"
                 android:layout_marginTop="2dp"
+                android:layout_marginEnd="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textView4"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-<!--        <TextView-->
-<!--                android:id="@+id/tv_vintage"-->
-<!--                style="@style/TextViewDetalhesForm"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="4dp"-->
-<!--                app:layout_constraintBottom_toBottomOf="@+id/textView28"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/textView28"-->
-<!--                app:layout_constraintTop_toTopOf="@+id/textView28" />-->
+        <!--        <TextView-->
+        <!--                android:id="@+id/tv_vintage"-->
+        <!--                style="@style/TextViewDetalhesForm"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginStart="4dp"-->
+        <!--                app:layout_constraintBottom_toBottomOf="@+id/textView28"-->
+        <!--                app:layout_constraintStart_toEndOf="@+id/textView28"-->
+        <!--                app:layout_constraintTop_toTopOf="@+id/textView28" />-->
 
         <ProgressBar
                 android:id="@+id/fl_proxy_container"

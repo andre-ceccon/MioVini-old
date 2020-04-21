@@ -44,10 +44,7 @@ class WineSynchronization : JobService() {
     override fun onStopJob(
         params: JobParameters?
     ): Boolean {
-        builder.setContentText(
-            getString(R.string.finished_early)
-        ).setSmallIcon(R.drawable.ic_sync_problem)
-
+        setContentText(R.string.finished_early)
         notifyManager()
         return true
     }
@@ -77,13 +74,11 @@ class WineSynchronization : JobService() {
             ).getSumVintage().toString()
         )
 
-        builder.setContentText(
-            getString(R.string.successfully_ended)
-        ).setSmallIcon(R.drawable.ic_check)
-
+        setContentText(R.string.successfully_ended)
         notifyManager()
-
-        jobFinished(params, false)
+        jobFinished(
+            params, false
+        )
     }
 
     private fun displayNotificationImage() {
@@ -98,8 +93,20 @@ class WineSynchronization : JobService() {
             .setContentTitle(getString(R.string.synchronizing_database))
             .setContentText(getString(R.string.in_progress))
             .setOnlyAlertOnce(true)
-            .setPriority(NotificationCompat.DEFAULT_ALL)
+            .setPriority(NotificationCompat.PRIORITY_LOW)
 
         notifyManager()
+    }
+
+    private fun setContentText(
+        textID: Int
+    ) {
+        builder.setContentText(
+            getString(textID)
+        ).setSmallIcon(
+            R.drawable.ic_check
+        ).setTimeoutAfter(
+            2 * 60 * 1000
+        )
     }
 }

@@ -10,12 +10,13 @@ data class Purchase(
     var amount: Int = 0,
     var price: Double = 0.0,
     var date: Date = Date(),
-    var id: String = "",
+    var purchaseId: String = "",
     var store: String = "",
     var comment: String = ""
 ) : Parcelable {
 
     companion object {
+        const val newPurchase = "newPurchase"
         const val updatePurchase = "editPurchase"
         const val ParcelablePurchase = "purchase-key"
     }
@@ -26,7 +27,7 @@ data class Purchase(
         map["amount"] = this.amount
         map["price"] = this.price
         map["date"] = this.date
-        map["id"] = this.id
+        map["purchaseId"] = this.purchaseId
         map["store"] = this.store
         map["comment"] = this.comment
         return map
@@ -37,7 +38,7 @@ data class Purchase(
         result = 31 * result + amount
         result = 31 * result + price.hashCode()
         result = 31 * result + date.hashCode()
-        result = 31 * result + id.hashCode()
+        result = 31 * result + purchaseId.hashCode()
         result = 31 * result + store.hashCode()
         result = 31 * result + comment.hashCode()
         return result
@@ -51,7 +52,7 @@ data class Purchase(
         if (amount != other.amount) return false
         if (price != other.price) return false
         if (date != other.date) return false
-        if (id != other.id) return false
+        if (purchaseId != other.purchaseId) return false
         if (store != other.store) return false
         if (comment != other.comment) return false
 

@@ -1,35 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-    <include layout="@layout/proxy_screen"/>
+    <include
+            layout="@layout/proxy_screen"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_preco"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="256dp"
+            android:layout_alignParentTop="true"
             android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <Button
             android:id="@+id/button"
             style="@style/ButtonForm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="4dp"
+            android:layout_below="@id/rv_preco"
+            android:layout_alignParentEnd="true"
             android:onClick="closePurchaseDialog"
-            android:text="@string/purchase_close"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rv_preco" />
+            android:text="@string/purchase_close" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+            android:id="@+id/buttom_new_Purchase"
+            style="@style/ButtonForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rv_preco"
+            android:layout_alignParentStart="true"
+            android:onClick="callNewPurchase"
+            android:text="Nova Compra" />
+</RelativeLayout>

@@ -15,14 +15,11 @@ open class FirebaseBase {
         60, TimeUnit.SECONDS, LinkedBlockingQueue()
     )
 
-    protected fun getAuth(): FirebaseAuth =
-        FirebaseAuth.getInstance()
+    protected fun getAuth(): FirebaseAuth = FirebaseAuth.getInstance()
 
-    private fun getStorage(): FirebaseStorage =
-        FirebaseStorage.getInstance()
+    private fun getStorage(): FirebaseStorage = FirebaseStorage.getInstance()
 
-    protected fun getFireStore(): FirebaseFirestore =
-        FirebaseFirestore.getInstance()
+    protected fun getFireStore(): FirebaseFirestore = FirebaseFirestore.getInstance()
 
     protected fun getWinesCollection(): CollectionReference {
         return getFireStore()
@@ -87,14 +84,5 @@ open class FirebaseBase {
             .child(
                 imageName
             )
-    }
-
-    protected fun antigaGetUserCellection(): CollectionReference {
-        return getFireStore()
-            .collection("users")
-            .document(
-                getAuth().currentUser!!.uid
-            )
-            .collection("Infos")
     }
 }

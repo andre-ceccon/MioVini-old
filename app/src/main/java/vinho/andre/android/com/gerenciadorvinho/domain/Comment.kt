@@ -6,7 +6,7 @@ import java.util.*
 
 @Parcelize
 data class Comment(
-    var id: String = "",
+    var commentId: String = "",
     var date: Date = Date(),
     var comment: String = ""
 ) : Parcelable{
@@ -18,14 +18,14 @@ data class Comment(
 
     fun getMap(): Map<String, Any> {
         val map = HashMap<String, Any>()
-        map["id"] = this.id
+        map["commentId"] = this.commentId
         map["date"] = this.date
         map["comment"] = this.comment
         return map
     }
 
     override fun hashCode(): Int {
-        var result = id.hashCode()
+        var result = commentId.hashCode()
         result = 31 * result + date.hashCode()
         result = 31 * result + comment.hashCode()
         return result
@@ -35,7 +35,7 @@ data class Comment(
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
         other as Comment
-        if (id != other.id) return false
+        if (commentId != other.commentId) return false
         if (date != other.date) return false
         if (comment != other.comment) return false
 

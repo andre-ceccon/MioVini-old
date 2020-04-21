@@ -55,15 +55,12 @@ class WineAdapter(
             val context: Context =
                 view.getContext()
 
-            val sharedPreferences =
-                SharedPreferencesUtil(context)
-
-            Log.d("MAIN", sharedPreferences.getIsNewUser().toString())
+            val sharedPreferences = SharedPreferencesUtil(context)
 
             if (sharedPreferences.getIsNewUser()) {
                 view.createDialogOfNoWineRegistration(
-                    "Bem-vindo",
-                    "Vi que você não possui cadastro de vinho na sua adega, deseja cadastrar agora?",
+                    context.getString(R.string.title_firt_login),
+                    context.getString(R.string.alert_menssage_firt_login),
                     context.getString(R.string.cancel_buttom)
                 )
 
@@ -72,7 +69,7 @@ class WineAdapter(
                 view.createDialogOfNoWineRegistration(
                     context.getString(R.string.title_alertDialog_without_wine),
                     context.getString(R.string.alert_message_dialogue_without_wine),
-                    "Mudar filtro"
+                    context.getString(R.string.change_filter)
                 )
             }
         }
