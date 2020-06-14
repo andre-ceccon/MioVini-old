@@ -12,8 +12,10 @@ class SignUpData(
     override fun onSendSingUp(email: String, password: String) {
         getAuth().createUserWithEmailAndPassword(
             email, password
-        ).addOnCompleteListener {
-            presenter.onResponseRequestSignUp(it)
+        ).addOnCompleteListener { authResult ->
+            saveUidInDatabase(presenter.getContext())
+
+            presenter.onResponseRequestSignUp(authResult)
         }
     }
 }

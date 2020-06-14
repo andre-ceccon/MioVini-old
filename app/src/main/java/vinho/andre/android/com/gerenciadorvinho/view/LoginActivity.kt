@@ -151,7 +151,10 @@ class LoginActivity :
     */
     override fun requestActionOnFirebase() {
         if (validateForm()) {
-            presenter.onSendLogin(et_email.text.toString().trim(), et_password.text.toString().trim())
+            presenter.onSendLogin(
+                et_email.text.toString().trim(),
+                et_password.text.toString().trim()
+            )
         } else {
             unBlockFields()
         }
@@ -221,9 +224,11 @@ class LoginActivity :
     }
 
     override fun callMainActivity() {
-        showProxy(false)
-        startActivity(Intent(this, MainActivity::class.java))
-        finish()
+        runOnUiThread {
+            showProxy(false)
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
     }
 
     override fun updateUI(

@@ -335,6 +335,9 @@
     <string name="error_delete">
         Não foi possível deletar
     </string>
+    <string name="new_purchase">
+        Nova\ncompra
+    </string>
 
     <!-- Cadastro Vinho -->
     <string name="title_activity_wine_register">

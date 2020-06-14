@@ -195,15 +195,17 @@ class SignUpActivity :
                 et_password.error = getString(idString)
             }
             "openMainActivity" -> {
-                Handler().postDelayed({
-                    startActivity(
-                        Intent(
-                            this,
-                            MainActivity::class.java
+                runOnUiThread {
+                    Handler().postDelayed({
+                        startActivity(
+                            Intent(
+                                this,
+                                MainActivity::class.java
+                            )
                         )
-                    )
-                    finish()
-                }, 500)
+                        finish()
+                    }, 500)
+                }
             }
         }
     }

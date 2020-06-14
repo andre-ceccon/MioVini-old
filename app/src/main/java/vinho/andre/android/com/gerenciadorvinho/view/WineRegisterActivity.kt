@@ -3,12 +3,14 @@ package vinho.andre.android.com.gerenciadorvinho.view
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.os.Handler
+import android.provider.MediaStore
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
@@ -16,14 +18,20 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.blankj.utilcode.util.ColorUtils
 import com.blankj.utilcode.util.KeyboardUtils
+import com.blankj.utilcode.util.NetworkUtils
 import com.nguyenhoanglam.imagepicker.model.Config
 import com.nguyenhoanglam.imagepicker.model.Image
 import com.nguyenhoanglam.imagepicker.ui.imagepicker.ImagePicker
 import com.squareup.picasso.Picasso
 import id.zelory.compressor.Compressor
+import id.zelory.compressor.constraint.format
+import id.zelory.compressor.constraint.quality
+import id.zelory.compressor.constraint.resolution
 import kotlinx.android.synthetic.main.content_form.*
 import kotlinx.android.synthetic.main.content_wine_register.*
 import kotlinx.android.synthetic.main.purchase_register_in_the_wine_register.view.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import vinho.andre.android.com.gerenciadorvinho.R
 import vinho.andre.android.com.gerenciadorvinho.domain.Comment
 import vinho.andre.android.com.gerenciadorvinho.domain.ImageUtil
@@ -35,7 +43,6 @@ import vinho.andre.android.com.gerenciadorvinho.interfaces.view.WineRegisterView
 import vinho.andre.android.com.gerenciadorvinho.presenter.WineRegisterPresenter
 import vinho.andre.android.com.gerenciadorvinho.util.DataUtil
 import vinho.andre.android.com.gerenciadorvinho.util.PurchaseDialogUtil
-import vinho.andre.android.com.gerenciadorvinho.util.function.checkConnection
 import vinho.andre.android.com.gerenciadorvinho.util.function.isValidLength
 import vinho.andre.android.com.gerenciadorvinho.util.function.validate
 import vinho.andre.android.com.gerenciadorvinho.view.abstracts.FormActivity
@@ -57,7 +64,9 @@ class WineRegisterActivity :
     ) {
         ImagePicker.with(this)
             .setCameraOnly(true)
-            .setKeepScreenOn(true)
+            .setRootDirectoryName(Config.ROOT_DIR_DCIM)
+            .setDirectoryName("MioVini")
+            .setRequestCode(200)
             .start()
     }
 
@@ -76,21 +85,19 @@ class WineRegisterActivity :
             Color.WHITE
         )
 
-        ImagePicker
-            .with(this)
+        ImagePicker.with(this)
+            .setMaxSize(1)
+            .setRootDirectoryName(Config.ROOT_DIR_DCIM)
+            .setFolderMode(true)
+            .setShowCamera(false)
+            .setFolderTitle(getString(R.string.imagepicker_gallery_activity))
+            .setLimitMessage(getString(R.string.imagepicker_selection_limit))
             .setToolbarColor(colorPrimary)
             .setStatusBarColor(colorPrimaryDark)
             .setToolbarTextColor(colorWhite)
             .setToolbarIconColor(colorWhite)
             .setProgressBarColor(colorPrimaryDark)
             .setBackgroundColor(colorWhite)
-            .setMultipleMode(false)
-            .setFolderMode(true)
-            .setShowCamera(true)
-            .setLimitMessage(getString(R.string.imagepicker_selection_limit))
-            .setFolderTitle(getString(R.string.imagepicker_gallery_activity)) //Nome da tela de galeria da ImagePicker API (funciona quando FolderMode = true)
-            .setKeepScreenOn(true)
-            .setAlwaysShowDoneButton(true)
             .start()
     }
 
@@ -126,8 +133,9 @@ class WineRegisterActivity :
                         Toast.LENGTH_LONG
                     ).show()
                 }
-                !isEqualPurchase() && isUpdateOf != null &&
-                        checkConnection(this) &&
+                !isEqualPurchase() &&
+                        isUpdateOf != null &&
+                        NetworkUtils.isConnected() &&
                         (isUpdateOf == Purchase.newPurchase || isUpdateOf == Purchase.updatePurchase) -> {
 
                     purchaseDialogUtil.showDialog(false)
@@ -275,53 +283,42 @@ class WineRegisterActivity :
         resultCode: Int,
         data: Intent?
     ) {
-        if (requestCode == Config.RC_PICK_IMAGES &&
-            resultCode == Activity.RESULT_OK &&
-            data != null
-        ) {
-            val images =
-                data.getParcelableArrayListExtra<Image>(Config.EXTRA_IMAGES)
+        if (data != null && resultCode == Activity.RESULT_OK) {
+            if (requestCode == 200) {
+                GlobalScope.launch {
+                    val images: ArrayList<Image> = ImagePicker.getImages(data)
 
-            if (images!!.isNotEmpty()) {
-                val dataUtil = DataUtil()
-                val imgOriginal = File(images.first().path)
-                val directoryPathFile =
-                    File(
-                        Environment.getExternalStoragePublicDirectory(
-                            Environment.DIRECTORY_PICTURES
-                        ).absolutePath,
-                        getString(R.string.imagepicker_cam_photos_activity)
-                    ).absolutePath
+                    val imgOriginal = File(
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                            getRealPathFromUri(
+                                Uri.withAppendedPath(
+                                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                                    images.first().id.toString()
+                                )
+                            )!!
+                        } else {
+                            images.first().path
+                        }
+                    )
 
-                val imageResized = Compressor(this)
-                    .setMaxWidth(858) /*old value 640*/
-                    .setMaxHeight(480)
-                    .setQuality(75)
-                    .setCompressFormat(
-                        Bitmap.CompressFormat.JPEG
-                    )
-                    .setDestinationDirectoryPath(
-                        directoryPathFile
-                    )
-                    .compressToFile(
+                    val compressedImageFile = Compressor.compress(
+                        getContext(),
                         imgOriginal
-                    )
+                    ) {
+                        resolution(858, 480)
+                        quality(75)
+                        format(Bitmap.CompressFormat.JPEG)
+                    }
 
-                val folder = File("/storage/emulated/0/Pictures/Camera")
-                folder.deleteRecursively()
+                    imgOriginal.deleteOnExit()
 
-                image = ImageUtil(
-                    imageResized.path,
-                    dataUtil.generateNameForImage()
-                )
-
-                if (isUpdateOf == Wine.UpdateWine) {
-                    image!!.nameOldImage =
-                        getWine().image[Wine.NameImage].toString()
+                    finishPhotoSetup(compressedImageFile.path)
                 }
-
-                iv_wine.setImageURI(
-                    Uri.parse(imageResized.path)
+            } else if (requestCode == Config.RC_PICK_IMAGES) {
+                finishPhotoSetup(
+                    ImagePicker.getImages(
+                        data
+                    ).first().path
                 )
             }
         }
@@ -350,6 +347,43 @@ class WineRegisterActivity :
             else -> {
                 super.onBackPressed()
             }
+        }
+    }
+
+    private fun finishPhotoSetup(
+        path: String
+    ) {
+        image = ImageUtil(
+            path,
+            DataUtil().generateNameForImage()
+        )
+
+        if (isUpdateOf == Wine.UpdateWine) {
+            image!!.nameOldImage =
+                getWine().image[
+                        Wine.NameImage
+                ].toString()
+        }
+
+        runOnUiThread {
+            iv_wine.setImageURI(
+                Uri.parse(path)
+            )
+        }
+    }
+
+    private fun getRealPathFromUri(
+        contentUri: Uri?
+    ): String? {
+        var cursor: Cursor? = null
+        return try {
+            val proj = arrayOf(MediaStore.Images.Media.DATA)
+            cursor = this.contentResolver.query(contentUri!!, proj, null, null, null)
+            val columnIndex = cursor!!.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+            cursor.moveToFirst()
+            cursor.getString(columnIndex)
+        } finally {
+            cursor?.close()
         }
     }
 
@@ -593,7 +627,7 @@ class WineRegisterActivity :
                 et_comment.error = null
             }
 
-            if (!checkConnection(this)) {
+            if (!NetworkUtils.isConnected()) {
                 snackBarFeedback(
                     fl_form_container,
                     getString(R.string.no_internet_connection)

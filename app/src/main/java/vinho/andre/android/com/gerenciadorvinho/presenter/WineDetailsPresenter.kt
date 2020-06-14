@@ -1,6 +1,6 @@
 package vinho.andre.android.com.gerenciadorvinho.presenter
 
-import android.content.Context
+import com.blankj.utilcode.util.NetworkUtils
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.QuerySnapshot
@@ -13,7 +13,6 @@ import vinho.andre.android.com.gerenciadorvinho.domain.WineComplement
 import vinho.andre.android.com.gerenciadorvinho.interfaces.data.WineDetailsDataInterface
 import vinho.andre.android.com.gerenciadorvinho.interfaces.presenter.WineDetailsPresenterInterface
 import vinho.andre.android.com.gerenciadorvinho.interfaces.view.WineDetailsActivityInterface
-import vinho.andre.android.com.gerenciadorvinho.util.function.checkConnection
 import java.util.*
 
 class WineDetailsPresenter(
@@ -28,10 +27,9 @@ class WineDetailsPresenter(
 
     override fun deleteWine(
         idWine: String,
-        context: Context,
         image: Map<String, Any>
     ) {
-        if (connectionValidation(context)) {
+        if (connectionValidation()) {
             view.showProxy(true)
             view.blockFields(true)
             data.deleteWine(
@@ -43,10 +41,9 @@ class WineDetailsPresenter(
 
     override fun saveBookmark(
         idWine: String,
-        context: Context,
         bookmark: Boolean
     ) {
-        if (connectionValidation(context)) {
+        if (connectionValidation()) {
             view.showProxy(true)
             view.blockFields(true)
 
@@ -59,10 +56,9 @@ class WineDetailsPresenter(
 
     override fun deleteComment(
         idWine: String,
-        context: Context,
         idComment: String
     ) {
-        if (connectionValidation(context)) {
+        if (connectionValidation()) {
             view.showProxy(true)
             view.blockFields(true)
             data.deleteComment(
@@ -74,10 +70,9 @@ class WineDetailsPresenter(
 
     override fun deletePurchase(
         idWine: String,
-        context: Context,
         idPurchase: String
     ) {
-        if (connectionValidation(context)) {
+        if (connectionValidation()) {
             view.showProxy(true)
             data.deletePurchase(
                 idWine,
@@ -89,10 +84,9 @@ class WineDetailsPresenter(
     override fun modifyWineHouse(
         idWine: String,
         wineHouse: Int,
-        context: Context,
         idWineComplement: String
     ) {
-        if (connectionValidation(context)) {
+        if (connectionValidation()) {
             view.showProxy(true)
             view.blockFields(true)
 
@@ -194,10 +188,8 @@ class WineDetailsPresenter(
         )
     }
 
-    private fun connectionValidation(
-        context: Context
-    ): Boolean {
-        return if (checkConnection(context)) {
+    private fun connectionValidation(): Boolean {
+        return if (NetworkUtils.isConnected()) {
             true
         } else {
             view.snackBarFeedback(view.getContext().getString(R.string.no_internet_connection))

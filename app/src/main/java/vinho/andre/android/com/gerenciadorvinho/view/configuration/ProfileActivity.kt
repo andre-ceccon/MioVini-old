@@ -3,6 +3,7 @@ package vinho.andre.android.com.gerenciadorvinho.view.configuration
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import com.blankj.utilcode.util.NetworkUtils
 import kotlinx.android.synthetic.main.content_form.*
 import kotlinx.android.synthetic.main.content_profile.*
 import vinho.andre.android.com.gerenciadorvinho.R
@@ -10,7 +11,6 @@ import vinho.andre.android.com.gerenciadorvinho.domain.User
 import vinho.andre.android.com.gerenciadorvinho.interfaces.presenter.configuration.ProfilePresenteInterface
 import vinho.andre.android.com.gerenciadorvinho.interfaces.view.configuration.ProfileActivityInterface
 import vinho.andre.android.com.gerenciadorvinho.presenter.configuration.ProfilePresenter
-import vinho.andre.android.com.gerenciadorvinho.util.function.checkConnection
 import vinho.andre.android.com.gerenciadorvinho.util.function.validate
 import vinho.andre.android.com.gerenciadorvinho.view.abstracts.FormActivity
 
@@ -21,7 +21,7 @@ class ProfileActivity :
     private var updateName: Boolean = false
     private lateinit var presenter: ProfilePresenteInterface
 
-    private fun getUser(): User = intent.getParcelableExtra(User.KEY)
+    private fun getUser(): User = intent.getParcelableExtra(User.KEY)!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,7 +76,7 @@ class ProfileActivity :
 
     override fun requestActionOnFirebase() {
         if (et_name.text.toString().isNotEmpty()) {
-            if (checkConnection(this)) {
+            if (NetworkUtils.isConnected()) {
                 presenter.updateProfile(
                     et_name.text.toString().trim()
                 )

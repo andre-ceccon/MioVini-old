@@ -13,18 +13,29 @@ class LoginData(
         return getAuth().currentUser != null
     }
 
-    override fun onLoginGoogle(credential: AuthCredential) {
+    override fun onLoginGoogle(
+        credential: AuthCredential
+    ) {
         getAuth().signInWithCredential(credential)
-            .addOnCompleteListener {
-                loginpresenter.onResponseRequestLogin(it)
+            .addOnCompleteListener { authResult ->
+                saveUidInDatabase(loginpresenter.getContext())
+
+                loginpresenter.onResponseRequestLogin(
+                    authResult
+                )
             }
     }
 
-    override fun onLoginEmailAndPassword(email: String, password: String) {
+    override fun onLoginEmailAndPassword(
+        email: String,
+        password: String
+    ) {
         getAuth()
             .signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener {
-                loginpresenter.onResponseRequestLogin(it)
+            .addOnCompleteListener { authResult ->
+                loginpresenter.onResponseRequestLogin(
+                    authResult
+                )
             }
     }
 }

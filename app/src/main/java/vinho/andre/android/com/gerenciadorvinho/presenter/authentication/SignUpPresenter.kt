@@ -1,5 +1,6 @@
 package vinho.andre.android.com.gerenciadorvinho.presenter.authentication
 
+import android.content.Context
 import com.google.android.gms.tasks.Task
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.AuthResult
@@ -20,18 +21,22 @@ class SignUpPresenter(
     private var model: SignUpDataInterface =
         SignUpData(this)
 
+    override fun getContext(): Context = view.getContext()
+
     override fun onSendSingUp(
         email: String,
         password: String
     ) = model.onSendSingUp(email, password)
 
     override fun onResponseRequestSignUp(
-        result: Task<AuthResult>
+        authResult: Task<AuthResult>
     ) {
-        if (result.isSuccessful) {
+        if (authResult.isSuccessful) {
             SharedPreferencesUtil(
                 view.getContext()
-            ).saveIsNewUser(result.result?.additionalUserInfo?.isNewUser)
+            ).saveIsNewUser(
+                authResult.result?.additionalUserInfo?.isNewUser
+            )
 
             view.updateUI(
                 "openMainActivity",
@@ -39,7 +44,7 @@ class SignUpPresenter(
             )
         } else {
             try {
-                throw result.exception!!
+                throw authResult.exception!!
             } catch (exception: FirebaseAuthWeakPasswordException) {
                 view.updateUI("password", R.string.weak_password)
             } catch (exception: FirebaseAuthInvalidCredentialsException) {

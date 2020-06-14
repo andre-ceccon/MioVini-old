@@ -584,6 +584,27 @@ class DBHelper(
         return sum
     }
 
+    fun getSumWine(): Int {
+        val db = this.readableDatabase
+
+        val query = "SELECT Count(*) FROM $tableWine;"
+        var sum = 0
+
+        val cursor = db.rawQuery(query, null)
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    sum = cursor.getInt(0)
+                } while (cursor.moveToNext())
+            }
+        }
+
+        cursor.close()
+        db.close()
+        return sum
+    }
+
     private fun valuesWine(
         wine: Wine
     ): ContentValues {

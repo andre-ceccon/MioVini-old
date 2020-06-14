@@ -8,9 +8,9 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestoreException
 import vinho.andre.android.com.gerenciadorvinho.R
+import vinho.andre.android.com.gerenciadorvinho.data.sqlite.DBHelper
 import vinho.andre.android.com.gerenciadorvinho.domain.Wine
 import vinho.andre.android.com.gerenciadorvinho.interfaces.view.MainActivity
-import vinho.andre.android.com.gerenciadorvinho.util.SharedPreferencesUtil
 
 class WineAdapter(
     options: FirestoreRecyclerOptions<Wine>,
@@ -52,19 +52,14 @@ class WineAdapter(
         view.updateToolbarSubTitle()
 
         if (itemCount == 0) {
-            val context: Context =
-                view.getContext()
+            val context: Context = view.getContext()
 
-            val sharedPreferences = SharedPreferencesUtil(context)
-
-            if (sharedPreferences.getIsNewUser()) {
+            if (DBHelper(view.getContext()).getSumWine() == 0) {
                 view.createDialogOfNoWineRegistration(
                     context.getString(R.string.title_firt_login),
                     context.getString(R.string.alert_menssage_firt_login),
                     context.getString(R.string.cancel_buttom)
                 )
-
-                sharedPreferences.saveIsNewUser(false)
             } else {
                 view.createDialogOfNoWineRegistration(
                     context.getString(R.string.title_alertDialog_without_wine),

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         package="vinho.andre.android.com.gerenciadorvinho">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name= "android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -15,15 +14,16 @@
             android:fullBackupContent="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
+            android:requestLegacyExternalStorage="true"
             android:roundIcon="@mipmap/ic_launcher"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme"
-            tools:ignore="GoogleAppIndexingWarning">
+            android:theme="@style/AppTheme">
 
         <activity
                 android:name=".view.PrivacyPolicyActivity"
                 android:label="@string/title_activity_privacy_policy"
-                android:theme="@style/AppTheme.NoActionBar"/>
+                android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
                 android:name=".view.LoginActivity"
                 android:theme="@style/AppTheme.NoActionBar">
@@ -33,6 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
                 android:name=".view.configuration.connectiondata.ConnectDataActivity"
                 android:label="@string/title_activity_config_connection_data"
@@ -78,5 +79,4 @@
                 android:permission="android.permission.BIND_JOB_SERVICE"
                 android:theme="@style/Theme.AppCompat.Light" />
     </application>
-
 </manifest>

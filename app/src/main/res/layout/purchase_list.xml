@@ -40,5 +40,5 @@
             android:layout_below="@id/rv_preco"
             android:layout_alignParentStart="true"
             android:onClick="callNewPurchase"
-            android:text="Nova Compra" />
+            android:text="@string/new_purchase" />
 </RelativeLayout>

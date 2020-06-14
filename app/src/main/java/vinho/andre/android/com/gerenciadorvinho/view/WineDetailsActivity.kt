@@ -12,7 +12,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.content_wine_details.*
-import kotlinx.android.synthetic.main.dialog_list_preco.view.*
+import kotlinx.android.synthetic.main.purchase_list.view.*
 import vinho.andre.android.com.gerenciadorvinho.R
 import vinho.andre.android.com.gerenciadorvinho.data.sqlite.DBHelper
 import vinho.andre.android.com.gerenciadorvinho.domain.Comment
@@ -69,7 +69,6 @@ class WineDetailsActivity :
     ) {
         presenter.saveBookmark(
             wine.wineId,
-            this,
             cb_bookmark.isChecked
         )
     }
@@ -107,7 +106,6 @@ class WineDetailsActivity :
             presenter.modifyWineHouse(
                 wine.wineId,
                 wineHouse - 1,
-                this,
                 wineComplement.wineComplementId
             )
         }
@@ -121,7 +119,6 @@ class WineDetailsActivity :
             presenter.modifyWineHouse(
                 wine.wineId,
                 wineHouse + 1,
-                this,
                 wineComplement.wineComplementId
             )
         }
@@ -145,7 +142,7 @@ class WineDetailsActivity :
         presenter = WineDetailsPresenter(this)
         purchaseDialogUtil = PurchaseDialogUtil(this)
         purchaseDialogUtil.createDialogPurchase(
-            R.layout.dialog_list_preco
+            R.layout.purchase_list
         )
 
         wine = intent.getParcelableExtra(Wine.ParcelableWine)!!
@@ -501,7 +498,6 @@ class WineDetailsActivity :
                     Wine.UpdateWine -> {
                         presenter.deleteWine(
                             id,
-                            this,
                             wine.image
                         )
                     }
@@ -509,14 +505,12 @@ class WineDetailsActivity :
                         closePurchaseDialog(null)
                         presenter.deletePurchase(
                             wine.wineId,
-                            this,
                             id
                         )
                     }
                     Comment.updateComment -> {
                         presenter.deleteComment(
                             wine.wineId,
-                            this,
                             id
                         )
                     }

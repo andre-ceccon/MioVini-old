@@ -11,6 +11,7 @@ import java.util.*
 class MoneyTextWatcher(
     editText: EditText
 ) : TextWatcher {
+
     private val locale: Locale
     private val editTextWeakReference: WeakReference<EditText>?
     private val symbolCurrency: String

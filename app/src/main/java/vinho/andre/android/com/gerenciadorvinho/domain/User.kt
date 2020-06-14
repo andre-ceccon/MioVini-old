@@ -6,7 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 class User(
-    var id: String,
+    var userid: String,
     var name: String?,
     var email: String?,
     var image: Uri?,
@@ -15,5 +15,6 @@ class User(
 
     companion object {
         const val KEY = "user-key"
+        const val ErrorUid = "ErrorSaveUid"
     }
 }

@@ -26,7 +26,7 @@ class PurchaseAdapter(
                 .from(
                     parent.context
                 ).inflate(
-                    R.layout.dialog_list_preco_adapter,
+                    R.layout.adapter_purchase,
                     parent,
                     false
                 ),

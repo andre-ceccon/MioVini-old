@@ -22,6 +22,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/field_date"
                 android:inputType="date"
+                android:imeOptions="actionNext"
                 app:met_mask="##/##/####" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -40,6 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/field_price"
+                android:imeOptions="actionNext"
                 android:inputType="numberDecimal"
                 android:maxLength="6" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -61,6 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/field_vintage"
+                android:imeOptions="actionNext"
                 android:inputType="number"
                 android:maxLength="4" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -80,6 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/field_amount"
+                android:imeOptions="actionNext"
                 android:inputType="numberDecimal"
                 android:maxLength="3" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -101,6 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/filed_store"
+                android:imeOptions="actionNext"
                 android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textAutoComplete"
                 android:maxLength="100"
                 android:maxLines="1" />
@@ -123,6 +128,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/field_comment"
+                android:imeOptions="actionNext"
                 android:inputType="textShortMessage|textAutoCorrect|textMultiLine|textCapSentences|textAutoComplete"
                 android:maxLength="150"
                 android:maxLines="4" />

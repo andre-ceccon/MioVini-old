@@ -5,9 +5,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AlertDialog
-import kotlinx.android.synthetic.main.custom_title_purchase.view.*
-import kotlinx.android.synthetic.main.dialog_list_preco.view.*
+import kotlinx.android.synthetic.main.adapter_purchase_title.view.*
 import kotlinx.android.synthetic.main.proxy_screen.view.*
+import kotlinx.android.synthetic.main.purchase_list.view.*
 import kotlinx.android.synthetic.main.purchase_register_in_the_wine_register.view.*
 import vinho.andre.android.com.gerenciadorvinho.R
 import vinho.andre.android.com.gerenciadorvinho.util.masks.MoneyTextWatcher
@@ -27,7 +27,7 @@ class PurchaseDialogUtil(
     ) {
         val inflater = LayoutInflater.from(context)
         layoutPurchase = inflater.inflate(idLayout, null)
-        layoutTitlePurchase = inflater.inflate(R.layout.custom_title_purchase, null)
+        layoutTitlePurchase = inflater.inflate(R.layout.adapter_purchase_title, null)
 
         if (idLayout == R.layout.purchase_register_in_the_wine_register) {
             layoutTitlePurchase.tv_title_purchase.text =

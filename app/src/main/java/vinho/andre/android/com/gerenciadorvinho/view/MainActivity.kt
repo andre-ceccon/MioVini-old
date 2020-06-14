@@ -211,6 +211,10 @@ class MainActivity :
     override fun onStart() {
         super.onStart()
 
+        if (!isJobServiceOn(this)) {
+            callService()
+        }
+
         if (rv.adapter == adapterFirebaseBase) {
             adapterFirebaseBase?.startListening()
         } else {
@@ -222,10 +226,6 @@ class MainActivity :
         }
 
         val sp = SharedPreferencesUtil(this)
-
-        if (!sp.getIsNewUser() && !isJobServiceOn(this)) {
-            callService()
-        }
 
         sp.getPreference()?.registerOnSharedPreferenceChangeListener(listener)
     }

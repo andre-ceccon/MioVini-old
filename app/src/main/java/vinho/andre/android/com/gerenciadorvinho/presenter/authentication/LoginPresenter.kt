@@ -1,5 +1,6 @@
 package vinho.andre.android.com.gerenciadorvinho.presenter.authentication
 
+import android.content.Context
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
@@ -14,7 +15,6 @@ import vinho.andre.android.com.gerenciadorvinho.data.firebase.authentication.Log
 import vinho.andre.android.com.gerenciadorvinho.interfaces.data.authentication.LoginDataInterface
 import vinho.andre.android.com.gerenciadorvinho.interfaces.presenter.authentication.LoginPresenterInterface
 import vinho.andre.android.com.gerenciadorvinho.interfaces.view.authentication.LoginViewInterface
-import vinho.andre.android.com.gerenciadorvinho.util.SharedPreferencesUtil
 
 class LoginPresenter(
     var view: LoginViewInterface
@@ -22,6 +22,8 @@ class LoginPresenter(
 
     private var model: LoginDataInterface =
         LoginData(this)
+
+    override fun getContext(): Context = view.getContext()
 
     override fun isLoggedIn() {
         if (model.isLoggedIn()) {
@@ -39,17 +41,13 @@ class LoginPresenter(
     ) = model.onLoginEmailAndPassword(email, password)
 
     override fun onResponseRequestLogin(
-        result: Task<AuthResult>
+        authResult: Task<AuthResult>
     ) {
-        if (result.isSuccessful) {
-            SharedPreferencesUtil(
-                view.getContext()
-            ).saveIsNewUser(result.result?.additionalUserInfo?.isNewUser)
-
+        if (authResult.isSuccessful) {
             view.callMainActivity()
         } else {
             try {
-                throw result.exception!!
+                throw authResult.exception!!
             } catch (e: FirebaseAuthInvalidCredentialsException) {
                 when (e.errorCode) {
                     "ERROR_WRONG_PASSWORD" -> {
