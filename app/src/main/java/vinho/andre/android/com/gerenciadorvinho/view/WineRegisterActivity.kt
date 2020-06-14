@@ -12,11 +12,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.blankj.utilcode.util.ColorUtils
+import com.blankj.utilcode.util.FileUtils
 import com.blankj.utilcode.util.KeyboardUtils
 import com.blankj.utilcode.util.NetworkUtils
 import com.blankj.utilcode.util.NumberUtils
@@ -99,6 +99,7 @@ class WineRegisterActivity :
             .setToolbarIconColor(colorWhite)
             .setProgressBarColor(colorPrimaryDark)
             .setBackgroundColor(colorWhite)
+            .setRequestCode(300)
             .start()
     }
 
@@ -285,10 +286,10 @@ class WineRegisterActivity :
         data: Intent?
     ) {
         if (data != null && resultCode == Activity.RESULT_OK) {
-            if (requestCode == 200) {
-                GlobalScope.launch {
-                    val images: ArrayList<Image> = ImagePicker.getImages(data)
+            GlobalScope.launch {
+                val images: ArrayList<Image> = ImagePicker.getImages(data)
 
+                if (requestCode == 200) {
                     val imgOriginal = File(
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                             getRealPathFromUri(
@@ -306,21 +307,18 @@ class WineRegisterActivity :
                         getContext(),
                         imgOriginal
                     ) {
-                        resolution(858, 480)
-                        quality(75)
+                        resolution(1280, 720)
+                        quality(50)
                         format(Bitmap.CompressFormat.JPEG)
                     }
 
-                    imgOriginal.deleteOnExit()
-
+                    FileUtils.delete(imgOriginal)
                     finishPhotoSetup(compressedImageFile.path)
+                } else if (requestCode == 300) {
+                    finishPhotoSetup(
+                        images.first().path
+                    )
                 }
-            } else if (requestCode == Config.RC_PICK_IMAGES) {
-                finishPhotoSetup(
-                    ImagePicker.getImages(
-                        data
-                    ).first().path
-                )
             }
         }
 
@@ -458,6 +456,7 @@ class WineRegisterActivity :
             ).show()
         }
         unBlockFields()
+        deleteImageOnExit()
         openDetailActivity(wine)
     }
 
@@ -567,11 +566,26 @@ class WineRegisterActivity :
 
     private fun deleteImageOnExit() {
         if (image != null) {
-            if (!File(image!!.currentPathImage).delete()) {
-                Log.e(
-                    "MAIN",
-                    "Erro ao deletar a imagem ao sair"
-                )
+            if (image?.currentPathImage!!
+                    .contains("MioVini")
+            ) {
+                if (!FileUtils.delete(
+                        File(
+                            image!!.currentPathImage
+                                .split(image!!.nameImage)[0]
+                                .replace(
+                                    "/",
+                                    ""
+                                )
+                        )
+                    )
+                ) {
+                    Toast.makeText(
+                        this,
+                        "Erro ao deletar a imagem ao sair",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
             }
         }
     }

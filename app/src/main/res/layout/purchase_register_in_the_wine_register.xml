@@ -137,13 +137,15 @@
     <Button
             android:id="@+id/bt_save_purchase"
             style="@style/ButtonForm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
             android:onClick="savePurchaseButton"
             android:text="@string/purchase_confirmation"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout8"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
 
     <Button
@@ -155,6 +157,6 @@
             android:onClick="closePurchaseButton"
             android:text="@string/purchase_close"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout8"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
 </androidx.constraintlayout.widget.ConstraintLayout>

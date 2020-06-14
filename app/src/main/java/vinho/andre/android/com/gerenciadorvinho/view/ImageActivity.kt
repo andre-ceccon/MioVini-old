@@ -19,9 +19,6 @@ class ImageActivity : AppCompatActivity() {
             .load(
                 intent?.extras!!.getString("image")
             )
-            .resize(
-                480, 854
-            )
             .into(iv_photo)
     }
 }

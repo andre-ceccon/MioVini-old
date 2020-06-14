@@ -83,6 +83,8 @@ class WineRegisterPresenter(
             0,
             0,
             false
+        ).setTimeoutAfter(
+            1 * 60 * 1000
         )
 
         notificationManagerNotify()

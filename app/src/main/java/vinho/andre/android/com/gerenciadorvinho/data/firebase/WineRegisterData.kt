@@ -2,7 +2,6 @@ package vinho.andre.android.com.gerenciadorvinho.data.firebase
 
 import android.content.Context
 import android.net.Uri
-import android.util.Log
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
@@ -142,10 +141,9 @@ class WineRegisterData(
             .continueWithTask(
                 Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
                     if (!task.isSuccessful) {
-                        task.exception
-                            ?.let {
-                                throw it
-                            }
+                        task.exception?.let {
+                            throw it
+                        }
                     }
                     return@Continuation storageReference.downloadUrl
                 }
@@ -173,11 +171,6 @@ class WineRegisterData(
             OnCompleteListener {
                 if (it.isSuccessful) {
                     presenter.notifyUploadResult(true)
-                } else {
-                    Log.d(
-                        "MAIN",
-                        "Não Foi possivel deletar a Foto"
-                    )
                 }
 
                 callViewAction(
@@ -221,8 +214,6 @@ class WineRegisterData(
                 executor,
                 OnCompleteListener {
                     if (it.isSuccessful) {
-                        File(image.currentPathImage).delete()
-
                         wine.image = map
 
                         saveOnSqlite()

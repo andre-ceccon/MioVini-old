@@ -10,13 +10,6 @@ data class ImageUtil(
     var nameImage: String
 ) : Parcelable {
 
-    constructor(currentPathImage: String, nameImage: String, nameOldImage: String) : this(
-        currentPathImage,
-        nameImage
-    ) {
-        this.nameOldImage = nameOldImage
-    }
-
     @IgnoredOnParcel
     lateinit var nameOldImage: String
 }
