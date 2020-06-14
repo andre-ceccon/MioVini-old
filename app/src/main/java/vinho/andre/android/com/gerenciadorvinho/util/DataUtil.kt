@@ -1,12 +1,15 @@
 package vinho.andre.android.com.gerenciadorvinho.util
 
-import android.util.Log
 import java.text.SimpleDateFormat
 import java.util.*
 
 object DataUtil {
     private var isValid: Boolean = true
-    private var patter: String = "dd/MM/yyyy"
+    private val patters = mapOf(
+        "onlyDate" to "dd/MM/yyyy",
+        "dateAndTimeTogether" to "ddMMyyyy_HHmmss",
+        "separateDateAndTime" to "dd/MM/yyyy HH:mm:ss"
+    )
 
     fun getIsValid(): Boolean = isValid
 
@@ -18,11 +21,11 @@ object DataUtil {
 
     fun dateToString(
         data: Date,
-        locale: Locale = Locale.getDefault()
+        patter: String? = patters["onlyDate"]
     ): String {
         return SimpleDateFormat(
             patter,
-            locale
+            Locale.getDefault()
         ).format(
             data
         )
@@ -33,7 +36,7 @@ object DataUtil {
     ): Date {
         return try {
             val simpleDateFormat = SimpleDateFormat(
-                patter,
+                patters["onlyDate"],
                 Locale.getDefault()
             )
 
@@ -43,22 +46,20 @@ object DataUtil {
                 string_date
             )
         } catch (e: Exception) {
-            Log.e(
-                "DataUtil",
-                "Error formatting date"
-            )
             isValid = false
             return Date()
         }
     }
 
-    fun generateNameForImage(): String {
-        patter = "ddMMyyyy_HHmmss"
-        return "MV_${dateToString(getCurrentDateTime())}.jpg"
-    }
+    fun generateNameForImage(): String =
+        "MV_${dateToString(
+            getCurrentDateTime(),
+            patters["dateAndTimeTogether"]
+        )}.jpg"
 
-    fun getDateOfSync(): String {
-        patter = "dd/MM/yyyy HH:mm:ss"
-        return dateToString(getCurrentDateTime())
-    }
+    fun getDateOfSync(): String =
+        dateToString(
+            getCurrentDateTime(),
+            patters["separateDateAndTime"]
+        )
 }
