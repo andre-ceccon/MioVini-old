@@ -63,7 +63,10 @@ class SharedPreferencesUtil(
         context.getSharedPreferences(
             preference,
             Context.MODE_PRIVATE
-        ).edit().putBoolean("isNewUser", isNewUser ?: true).apply()
+        ).edit().putBoolean(
+            "isNewUser",
+            isNewUser ?: true
+        ).apply()
     }
 
     fun getIsNewUser(): Boolean {

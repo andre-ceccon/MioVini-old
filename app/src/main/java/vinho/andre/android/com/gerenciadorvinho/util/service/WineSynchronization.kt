@@ -64,7 +64,7 @@ class WineSynchronization : JobService() {
 
         sp.saveShared(
             KeyDateSync,
-            DataUtil().getDateOfSync()
+            DataUtil.getDateOfSync()
         )
 
         sp.saveShared(

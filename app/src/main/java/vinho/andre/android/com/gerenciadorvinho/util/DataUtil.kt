@@ -4,7 +4,7 @@ import android.util.Log
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DataUtil {
+object DataUtil {
     private var isValid: Boolean = true
     private var patter: String = "dd/MM/yyyy"
 

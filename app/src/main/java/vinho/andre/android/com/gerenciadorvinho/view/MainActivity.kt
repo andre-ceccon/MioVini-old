@@ -211,7 +211,9 @@ class MainActivity :
     override fun onStart() {
         super.onStart()
 
-        if (!isJobServiceOn(this)) {
+        if (!isJobServiceOn(this) &&
+            !SharedPreferencesUtil(this).getIsNewUser()
+        ) {
             callService()
         }
 

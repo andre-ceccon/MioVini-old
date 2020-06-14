@@ -14,7 +14,6 @@ class CommentViewHolder(
     var view: WineDetailsActivityInterface
 ) : RecyclerView.ViewHolder(itemView) {
 
-    private val dataUtil = DataUtil()
     private val date: TextView =
         itemView.findViewById(R.id.tt_data)
     private val comment: TextView =
@@ -27,7 +26,7 @@ class CommentViewHolder(
     fun setText(
         comment: Comment
     ) {
-        date.text = dataUtil.dateToString(comment.date)
+        date.text = DataUtil.dateToString(comment.date)
         this.comment.text = comment.comment
 
         buttonUpdate.setOnClickListener {

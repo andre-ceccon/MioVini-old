@@ -72,7 +72,7 @@ class WineDetailsData(
                 idWineComplement
             )
 
-        val currentTime = DataUtil().getCurrentDateTime()
+        val currentTime = DataUtil.getCurrentDateTime()
 
         batch.update(
             dateWineHouseReference,

@@ -182,7 +182,7 @@ class WineRegisterActivity :
         val comment: Comment? = intent.getParcelableExtra(Comment.ParcelableComment)
         return Comment(
             comment?.commentId ?: "",
-            comment?.date ?: DataUtil().getCurrentDateTime(),
+            comment?.date ?: DataUtil.getCurrentDateTime(),
             et_comment.text.toString().trim()
         )
     }
@@ -204,7 +204,7 @@ class WineRegisterActivity :
                 .toString()
                 .trim()
                 .toDouble(),
-            DataUtil()
+            DataUtil
                 .isDate(
                     layoutPurchase.et_date.text.toString().trim()
                 ),
@@ -245,7 +245,7 @@ class WineRegisterActivity :
             } else {
                 et_producer.text.toString().trim()
             },
-            wineComplement?.dateWineHouse ?: DataUtil().getCurrentDateTime()
+            wineComplement?.dateWineHouse ?: DataUtil.getCurrentDateTime()
         )
     }
 
@@ -355,7 +355,7 @@ class WineRegisterActivity :
     ) {
         image = ImageUtil(
             path,
-            DataUtil().generateNameForImage()
+            DataUtil.generateNameForImage()
         )
 
         if (isUpdateOf == Wine.UpdateWine) {
@@ -515,7 +515,7 @@ class WineRegisterActivity :
                 layoutPurchase.et_price.setText(purchase?.price.toString())
                 layoutPurchase.et_amount.setText(purchase?.amount.toString())
                 layoutPurchase.et_vintage.setText(purchase?.vintage.toString())
-                layoutPurchase.et_date.setText(DataUtil().dateToString(purchase!!.date))
+                layoutPurchase.et_date.setText(DataUtil.dateToString(purchase!!.date))
                 purchaseDialogUtil.showDialog(true)
             },
             500
@@ -696,7 +696,7 @@ class WineRegisterActivity :
             layoutPurchase.et_store.error = null
         }
 
-        val dateUtil = DataUtil()
+        val dateUtil = DataUtil
         dateUtil.isDate(
             layoutPurchase.et_date.text.toString()
         )

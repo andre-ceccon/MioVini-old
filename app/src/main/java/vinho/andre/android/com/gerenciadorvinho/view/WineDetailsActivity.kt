@@ -242,7 +242,7 @@ class WineDetailsActivity :
     ) {
         dialogForConfirmationOperation(
             purchase.purchaseId,
-            DataUtil().dateToString(purchase.date),
+            DataUtil.dateToString(purchase.date),
             Purchase.updatePurchase
         )
     }
@@ -358,7 +358,7 @@ class WineDetailsActivity :
                 wineComplement.dateWineHouse = date
 
                 tv_wineHouse.text = wineHouse.toString()
-                tv_dateWineHouse.text = DataUtil().dateToString(date)
+                tv_dateWineHouse.text = DataUtil.dateToString(date)
                 snackBarFeedback(
                     getString(R.string.updated_winery)
                 )
@@ -385,7 +385,7 @@ class WineDetailsActivity :
             tv_temperature.text =
                 if (wineComplement.temperature == 0) "" else wineComplement.temperature.toString()
             tv_dateWineHouse.text =
-                DataUtil().dateToString(
+                DataUtil.dateToString(
                     wineComplement.dateWineHouse
                 )
         }

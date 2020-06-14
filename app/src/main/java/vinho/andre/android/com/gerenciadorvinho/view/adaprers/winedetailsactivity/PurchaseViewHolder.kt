@@ -14,7 +14,6 @@ class PurchaseViewHolder(
     var view: WineDetailsActivityInterface
 ) : RecyclerView.ViewHolder(itemView) {
 
-    private val dataUtil = DataUtil()
     private val date: TextView =
         itemView.findViewById(R.id.tv_date_purchase)
     private val store: TextView =
@@ -36,7 +35,7 @@ class PurchaseViewHolder(
         purchase: Purchase
     ) {
         comment.text = purchase.comment
-        date.text = dataUtil.dateToString(purchase.date)
+        date.text = DataUtil.dateToString(purchase.date)
         store.text = view.getStringFormatted(purchase.store, "store")
         price.text = view.getStringFormatted(purchase.price.toString(), "price")
         amount.text = view.getStringFormatted(purchase.amount.toString(), "amount")
@@ -50,7 +49,7 @@ class PurchaseViewHolder(
 
         buttonDelete.setOnClickListener {
             view.deletePurchase(
-               purchase
+                purchase
             )
         }
     }
