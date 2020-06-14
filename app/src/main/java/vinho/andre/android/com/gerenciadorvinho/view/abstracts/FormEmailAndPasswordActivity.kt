@@ -29,7 +29,7 @@ abstract class FormEmailAndPasswordActivity :
      * Método idêntico.
      * */
     override fun onDestroy() {
-        KeyboardUtils.unregisterSoftInputChangedListener(this)
+        KeyboardUtils.unregisterSoftInputChangedListener(this.window)
         super.onDestroy()
     }
 

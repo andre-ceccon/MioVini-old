@@ -35,11 +35,25 @@ class PurchaseViewHolder(
         purchase: Purchase
     ) {
         comment.text = purchase.comment
-        date.text = DataUtil.dateToString(purchase.date)
-        store.text = view.getStringFormatted(purchase.store, "store")
-        price.text = view.getStringFormatted(purchase.price.toString(), "price")
-        amount.text = view.getStringFormatted(purchase.amount.toString(), "amount")
-        vintage.text = view.getStringFormatted(purchase.vintage.toString(), "vintage")
+        date.text = DataUtil.dateToString(
+            purchase.date
+        )
+        store.text = view.getStringFormatted(
+            purchase.store,
+            "store"
+        )
+        price.text = view.getStringFormatted(
+            purchase.price.toString(),
+            "price"
+        )
+        amount.text = view.getStringFormatted(
+            purchase.amount.toString(),
+            "amount"
+        )
+        vintage.text = view.getStringFormatted(
+            purchase.vintage.toString(),
+            "vintage"
+        )
 
         buttonUpdate.setOnClickListener {
             view.callUpdatePurchase(

@@ -44,7 +44,7 @@ dependencies {
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
     /* AndroidUtilCode API */
-    implementation 'com.blankj:utilcode:1.23.7'
+    implementation 'com.blankj:utilcodex:1.29.0'
 
     /*Compressor API - ImageUtil compression library */
     implementation 'id.zelory:compressor:3.0.0'

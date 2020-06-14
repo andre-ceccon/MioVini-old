@@ -19,6 +19,7 @@ import androidx.appcompat.app.AlertDialog
 import com.blankj.utilcode.util.ColorUtils
 import com.blankj.utilcode.util.KeyboardUtils
 import com.blankj.utilcode.util.NetworkUtils
+import com.blankj.utilcode.util.NumberUtils
 import com.nguyenhoanglam.imagepicker.model.Config
 import com.nguyenhoanglam.imagepicker.model.Image
 import com.nguyenhoanglam.imagepicker.ui.imagepicker.ImagePicker
@@ -512,7 +513,13 @@ class WineRegisterActivity :
 
                 layoutPurchase.et_store.setText(purchase?.store)
                 layoutPurchase.et_comment.setText(purchase?.comment)
-                layoutPurchase.et_price.setText(purchase?.price.toString())
+                layoutPurchase.et_price.setText(
+                    NumberUtils.format(
+                        purchase?.price?.toFloat() ?: 0F,
+                        2,
+                        false
+                    )
+                )
                 layoutPurchase.et_amount.setText(purchase?.amount.toString())
                 layoutPurchase.et_vintage.setText(purchase?.vintage.toString())
                 layoutPurchase.et_date.setText(DataUtil.dateToString(purchase!!.date))

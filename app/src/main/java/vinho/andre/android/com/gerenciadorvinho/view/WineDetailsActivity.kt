@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.blankj.utilcode.util.NumberUtils
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.app_bar.*
@@ -272,7 +273,12 @@ class WineDetailsActivity :
                 return getString(R.string.field_amount_purchase, text)
             }
             "price" -> {
-                return getString(R.string.field_price_purchase, text)
+                return getString(
+                    R.string.field_price_purchase,
+                    NumberUtils.format(
+                        text.toFloat(), 2, false
+                    )
+                )
             }
             "vintage" -> {
                 return getString(R.string.field_vintage_purchase, text)
