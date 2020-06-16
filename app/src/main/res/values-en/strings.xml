@@ -5,50 +5,50 @@
 
     <!-- JobService -->
     <string name="finished_early">
-        Acabou Antes da hora
+        Finished ahead of time
     </string>
     <string name="successfully_ended">
-        Acabou Com Sucesso
+        The synchronism ended successfully
     </string>
     <string name="synchronizing_database">
-        Sincronizando banco de dados
+        Synchronizing database
     </string>
     <string name="in_progress">
-        Em andamento
+        Synchronization in progress
     </string>
 
     <!-- Image Picker API - Adição e sobreposição de String -->
     <string name="imagepicker_msg_no_images">
-        Não há imagens na galeria.
+        There are no images in the gallery.
     </string>
     <string name="imagepicker_gallery_activity">
-        Galeria
+        Gallery
     </string>
     <string name="imagepicker_cam_photos_activity">
-        Fotos MioVini
+        Photos MioVini
     </string>
     <string name="imagepicker_selection_limit">
-        Apenas uma imagem pode ser selecionada.
+        Only one image can be selected.
     </string>
 
     <string name="field_required">
-        Obrigatório
+        Required
     </string>
 
     <string name="no_internet_connection">
-        Sem conexão com a internet
+        No internet connection
     </string>
 
     <string name="ic_info_desc">
-        Ícone de informação.
+        Information icon.
     </string>
 
     <string name="yes_button">
-        Sim
+        Yes
     </string>
 
     <string name="no_button">
-        Não
+        No
     </string>
 
     <!-- LoginActivity -->
@@ -56,109 +56,109 @@
         Login
     </string>
     <string name="hint_password">
-        Senha
+        Password
     </string>
     <string name="hint_email">
-        E-mail
+        Email
     </string>
     <string name="forgot_my_password">
-        Esqueci minha senha
+        I forgot my password
     </string>
     <string name="sign_in">
-        Entrar
+        Log in
     </string>
     <string name="sign_in_going">
-        Entrando&#8230;
+        Logging in&#8230;
     </string>
     <string name="sing_in_google">
-        Entrar com o Google
+        Sign in with Google
     </string>
     <string name="or">
-        ou
+        or
     </string>
     <string name="create_my_account">
-        Criar minha conta
+        Create my account
     </string>
     <string name="privacy_policy">
-        Políticas de privacidade
+        Privacy policy
     </string>
     <string name="invalid_password">
-        Mínimo de 8 caracteres.
+        Minimum of 8 characters.
     </string>
     <string name="invalid_email">
-        Forneça um e-mail válido.
+        Please provide a valid email.
     </string>
     <string name="unregistered_email">
-        E-mail não cadastrado ou incorreto
+        Email not registered or incorrect
     </string>
     <string name="wrong_password">
-        Senha está errada
+        Password is wrong
     </string>
     <string name="unable_to_login">
-        Não foi possivel logar
+        Error logging in
     </string>
 
     <!-- SignUpActivity -->
     <string name="title_activity_sign_up">
-        Cadastro
+        Sign up
     </string>
     <string name="hint_email_to_login">
-        E-mail (para login)
+        Email (to login)
     </string>
     <string name="hint_name">
-        Nome
+        Name
     </string>
     <string name="hint_confirm_password">
-        Confirmar senha
+        Confirm password
     </string>
     <string name="do_login">
-        Realizar login
+        Log in
     </string>
     <string name="sign_up">
-        Cadastrar
+        Sign up
     </string>
     <string name="sign_up_going">
-        Cadastrando&#8230;
+        Signing up&#8230;
     </string>
     <string name="invalid_confirmed_password">
-        Confirme à senha informada no campo acima.
+        Confirm the password entered in the field above
     </string>
     <string name="invalid_sign_up_email">
-        E-mail já cadastrado.
+        Email already registered
     </string>
     <string name="weak_password">
-        Senha Fraca
+        Weak Password
     </string>
     <string name="could_not_register">
-        Não foi possivel cadastrar.
+        It\'s not possible to register.
     </string>
     <string name="account_successfully_created">
-        Conta criada com sucesso
+        Account successfully created
     </string>
 
     <!-- ForgotPasswordActivity -->
     <string name="title_activity_forgot_password">
-        Recuperação de senha
+        Password recovery
     </string>
     <string name="forgot_password_info">
-        Informe abaixo o seu e-mail de login e em seguida acesse
-        o e-mail para prosseguir com o passo a passo de recuperação
-        de acesso.
+        Enter your login email below and then access
+        the email to proceed with the recovery step by step
+        access.
     </string>
     <string name="hint_login_email">
-        E-mail de login
+        Login email
     </string>
     <string name="recover_password">
-        Recuperar senha
+        Recover Password
     </string>
     <string name="recover_password_going">
-        Enviando&#8230;
+        Recovering&#8230;
     </string>
     <string name="invalid_login_email">
-        E-mail não foi encontrado em nossa base de dados.
+        Email not found in our database.
     </string>
     <string name="email_sent">
-        E-mail enviado com sucesso
+        Email successfully sent
     </string>
 
     <!-- MainActivity -->
@@ -169,361 +169,358 @@
         Close navigation drawer
     </string>
     <string name="title_group_navigation_drawer_filter">
-        Filtro
+        Filter
     </string>
     <string name="menu_item_in_the_cellar">
-        Adega
+        Winery
     </string>
     <string name="menu_item_rating">
-        Classificação
+        Classification
     </string>
     <string name="menu_item_bookmark">
-        Favoritos
+        Bookmarks
     </string>
     <string name="menu_item_name">
-        Nome
+        Name
     </string>
     <string name="menu_item_country_of_origin">
-        Origem
+        Country
     </string>
     <string name="menu_item_privacy_policy">
-        Políticas de privacidade
+        Privacy policy
     </string>
     <string name="menu_item_settings">
-        Minhas configurações
+        My settings
     </string>
     <string name="menu_item_sign_out">
-        Sair
+        Exit
     </string>
     <string name="title_alertDialog_without_wine">
-        Ops
+        Ops!
     </string>
     <string name="title_firt_login">
-        Bem-vindo
+        Welcome
     </string>
     <string name="alert_message_dialogue_without_wine">
-        Não há vinho(s) cadastrado(s) para exibir.
-        Cadastre ou mude o filtro utilizado!
+        There\'re no registered wine(s) to display.
+        Register or change the filter used!
     </string>
     <string name="alert_menssage_firt_login">
-        Você não possui nenhum cadastro de vinho na sua adega, deseja cadastrar agora?
+        You don\'t have any wine registration in your winery, do you want to register now?
     </string>
     <string name="alert_information_sync_container">
-        Última sincronização automática:
+        Last automatic synchronization:
     </string>
     <string name="alert_information_search_container">
-        A busca será realizada com base na
+        The search will be performed based on
     </string>
     <string name="sync_now">
-        Sincronizar agora (Apenas no Wi-fi)
+        Sync now (Wi-Fi only)
     </string>
     <string name="add_button">
-        Cadastrar
+        Register
     </string>
     <string name="cancel_buttom">
-        Agora não
+        Not now
     </string>
     <string name="change_filter">
-        Mudar filtro
+        Change filter
     </string>
 
     <!-- Hint Detalhe e cadastro vinho -->
     <string name="field_name">
-        Nome
+        Name
     </string>
     <string name="field_country">
-        País de origem
+        Country of origin
     </string>
     <string name="field_vintage">
-        Safra
+        Vintage
     </string>
     <string name="field_temperature">
-        Temperatura ideal
+        Ideal temperature
     </string>
     <string name="field_wineHouse">
-        Garrafas na adega
+        Bottles in the winery
     </string>
     <string name="field_grape">
-        Uvas
+        Grape
     </string>
     <string name="field_harmonization">
-        Harmoniza com
+        Harmonizes with
     </string>
     <string name="field_comment">
-        Comentário
+        Comment
     </string>
     <string name="field_producer">
-        Produtor
+        Producer
     </string>
     <string name="field_date">
-        Data
+        Date
     </string>
     <string name="field_amount">
-        Quantidade
+        Amount
     </string>
     <string name="field_price">
-        Preço
+        Price
     </string>
     <string name="filed_store">
-        Loja
+        Store
     </string>
     <string name="field_rating">
-        Avaliação
+        Rating
     </string>
     <string name="title_dialog_delete">
-        Atenção
+        Warning
     </string>
 
     <!-- Detalhe Vinho -->
     <string name="title_activity_wine_details">
-        Detalhe Vinho
+        Wine Detail
     </string>
     <string name="title_dialog_purchase">
-        Compras
+        Purchases
     </string>
     <string name="title_dialog_without_purchase_record">
-        Sem compra cadastrado
+        No purchase registered
     </string>
     <string name="field_comments">
-        Comentários
+        Comments
     </string>
     <string name="field_bookmark">
-        Favorito
+        Bookmark
     </string>
     <string name="field_date_wineHouse">
-        Data Adega:
+        Winery date
     </string>
     <string name="field_date_purchase">
-        Data: %1$s
+        Date: %1$s
     </string>
     <string name="field_store_purchase">
-        Loja: %1$s
+        Store: %1$s
     </string>
     <string name="field_amount_purchase">
-        Quantidade: %1$s
+        Amount: %1$s
     </string>
     <string name="field_price_purchase">
-        Preço: %1$s
+        Price: %1$s
     </string>
     <string name="field_vintage_purchase">
-        Safra: %1$s
+        Vintage: %1$s
     </string>
     <string name="field_comment_purchase">
-        Commentario: %1$s
+        Comment: %1$s
     </string>
     <string name="dialog_message_delete">
-       Deseja realmente deletar: %1$s?
+       Do you really want to delete: %1$s?
     </string>
     <string name="added_to_favorite">
-        Adicionado aos favoritos
+        Added to bookmark
     </string>
     <string name="removed_from_favorite">
-        Removido dos favoritos
+        Removed from bookmark
     </string>
     <string name="failed_favorite">
-       Erro ao atualizar o favorito
+       Error updating bookmark
     </string>
     <string name="updated_winery">
-        Adega Atualizada
+        Updated Winery
     </string>
     <string name="winery_upgrade_failed">
-        Erro ao atualizar a adega
+        Error updating winery
     </string>
     <string name="successfully_deleted">
-       Deletado com sucesso!
+        Successfully deleted!
     </string>
     <string name="error_delete">
-        Não foi possível deletar
+        Error deleting
     </string>
     <string name="new_purchase">
-        Nova\ncompra
+        New\npurchase
     </string>
 
     <!-- Cadastro Vinho -->
     <string name="title_activity_wine_register">
-        Cadastro Vinho
+        Wine Registration
     </string>
     <string name="title_dialog_new_purchase_record">
-        Nova compra
+        New purchase
     </string>
     <string name="title_notification_upload_image">
-        Enviando a imagem
+        Uploading image
     </string>
     <string name="upload_in_progress">
-        Em andamento
+        Upload in progress
     </string>
     <string name="hint_new_comment_record">
-        Novo comentario
+        New comment
     </string>
     <string name="hint_update_comment_record">
-        Atualização comentario
+        Update comment
     </string>
     <string name="title_dialog_update_purchase_record">
-        Atualização compra
+        Upgrade purchase
     </string>
     <string name="save">
-        Salvar
+        Save
     </string>
     <string name="purchase_confirmation">
-        Confirmar
+        Confirm
     </string>
     <string name="purchase_close">
-        Fechar
+        Close
     </string>
     <string name="save_going">
-        Salvando&#8230;
+        Saving&#8230;
     </string>
     <string name="channelIdNotification">
         uploadImage
     </string>
     <string name="purchase_information_attached">
-        Informações anexadas com as demais
+        Information attached with the others
     </string>
     <string name="validation_purchase_vintage">
-        Precisa ter 4 dígitos
+        Must be 4 digits
     </string>
     <string name="validation_date">
-        Data inválida
+        Invalid date
     </string>
     <string name="success_in_operation">
-        Sucesso!
+        Success!
     </string>
     <string name="message_exit_without_save">
-        Há informações não salvas, deseja realmente sair?
+        There\s unsaved information, do you really want to leave?
     </string>
     <string name="no_change_of_information">
-        Sem alteração de informação!
+        No change of information!
     </string>
     <string name="error_saving">
-        Erro ao salvar!
+        Error saving!
     </string>
     <string name="error_upload_image">
-        Não foi possivel enviar a foto!
+        It was not possible upload the photo!
     </string>
 
     <!-- SettingsActivity -->
     <string name="title_activity_settings">
-        Configurações de conta
+        Account Settings
     </string>
     <string name="connected">
-        Conectado:
+        Connected:
     </string>
     <string name="setting_item_profile">
-        Perfil
+        Profile
     </string>
     <string name="setting_item_profile_desc">
-        Para atualização de nome de perfil.
+        To profile name update.
     </string>
     <string name="setting_item_login">
-        Conexão (login)
+        Connection (login)
     </string>
     <string name="setting_item_login_desc">
-        Para atualização de e-mail ou senha de acesso.
-    </string>
-    <string name="title_activity_connect_data">
-        ConnectDataActivity
+        To update email or password.
     </string>
     <string name="wrong_provider_to_change_password">
-        Disponível para login com email e senha apenas
+        Available for login with email and password only
     </string>
 
     <!-- ConfigProfileActivity -->
     <string name="title_activity_config_profile">
-        Perfil
+        Profile
     </string>
     <string name="info_profile_photo">
-        Toque na foto para abrir a galeria ou fotografia.
+        Touch the photo to open the gallery or photo.
     </string>
     <string name="name_label">
-        Nome:
+        Name:
     </string>
     <string name="config_profile">
-        Atualizar perfil
+        Update profile
     </string>
     <string name="config_profile_going">
-        Atualizando&#8230;
+        Updating&#8230;
     </string>
     <string name="invalid_name">
-        Nome inválido.
+        Invalid name.
     </string>
     <string name="invalid_config_profile">
-        Um nome válido deve ser fornecido
+        A valid name must be provided
     </string>
 
     <string name="title_activity_filter_preference">
-        Filtro para inicialização do app
+        Filter app startup
     </string>
     <string name="default_filter">
-        Filtro padrão para iniciar o app
+        Standard filter to start the app
     </string>
     <string name="select_an_item">
-        Selecione um item:
+        Select an item:
     </string>
     <string name="defined_for">
-        Configurado para:
+        Configured to:
     </string>
 
     <!-- ConfigConnectionDataActivity -->
     <string name="title_activity_config_connection_data">
-        Conexão (login)
+        Connection (login)
     </string>
 
     <!-- Dialog Password -->
     <string name="dialog_password_info">
-        Entre com a senha para poder prosseguir:
+        Enter the password to proceed:
     </string>
     <string name="dialog_password_hint">
-        Senha
+        Password
     </string>
     <string name="dialog_password_go">
-        PROSSEGUIR
+        Continue
     </string>
     <string name="dialog_password_cancel">
-        CANCELAR
+        Cancel
     </string>
 
     <!-- ConfigEmailFragment -->
     <string name="config_connection_data_tab_email">
-        E-MAIL
+        EMAIL
     </string>
     <string name="hint_current_email">
-        E-mail atual
+        Current email
     </string>
     <string name="hint_new_email">
-        Novo e-mail
+        New email
     </string>
     <string name="hint_new_email_confirm">
-        Confirmar novo e-mail
+        Confirm new email
     </string>
     <string name="invalid_confirmed_email">
-        Confirme o e-mail informado no campo acima.
+        Confirm the email entered in the field above.
     </string>
     <string name="update_email_login">
-        Atualizar e-mail de login
+        Update login email
     </string>
     <string name="update_email_login_going">
-        Atualizando&#8230;
+        Updating&#8230;
     </string>
 
     <!-- ConfigPasswordFragment -->
     <string name="config_connection_data_tab_password">
-        SENHA
+        PASSWORD
     </string>
     <string name="hint_new_password">
-        Nova senha
+        New password
     </string>
     <string name="hint_new_password_confirm">
-        Confirmar nova senha
+        Confirm new password
     </string>
     <string name="update_password">
-        Atualizar senha
+        Update password
     </string>
     <string name="update_password_going">
-        Atualizando&#8230;
+        Updating&#8230;
     </string>
 
     <string name="error_update">
-        Erro ao atualizar
+        Error updating
     </string>
 
     <string name="title_activity_privacy_policy">
