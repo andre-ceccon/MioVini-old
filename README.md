@@ -1,5 +1,5 @@
 # MioVini
-![Preview-Screens](https://github.com/andre-ceccon/MioVini/blob/master/image_readme.png)
+![Preview-Screens](https://github.com/andre-ceccon/MioVini/blob/master/image_readme.jpg)
 
 ## About this Project
 The idea of the App is:
