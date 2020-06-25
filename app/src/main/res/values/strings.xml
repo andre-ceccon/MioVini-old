@@ -18,14 +18,8 @@
     </string>
 
     <!-- Image Picker API - Adição e sobreposição de String -->
-    <string name="imagepicker_msg_no_images">
-        Não há imagens na galeria.
-    </string>
     <string name="imagepicker_gallery_activity">
         Galeria
-    </string>
-    <string name="imagepicker_cam_photos_activity">
-        Fotos MioVini
     </string>
     <string name="imagepicker_selection_limit">
         Apenas uma imagem pode ser selecionada.
@@ -52,9 +46,6 @@
     </string>
 
     <!-- LoginActivity -->
-    <string name="title_activity_login">
-        Login
-    </string>
     <string name="hint_password">
         Senha
     </string>
@@ -153,9 +144,6 @@
     </string>
     <string name="recover_password_going">
         Enviando&#8230;
-    </string>
-    <string name="invalid_login_email">
-        E-mail não foi encontrado em nossa base de dados.
     </string>
     <string name="email_sent">
         E-mail enviado com sucesso
@@ -420,9 +408,6 @@
     <string name="setting_item_login_desc">
         Para atualização de e-mail ou senha de acesso.
     </string>
-    <string name="title_activity_connect_data">
-        ConnectDataActivity
-    </string>
     <string name="wrong_provider_to_change_password">
         Disponível para login com email e senha apenas
     </string>
@@ -430,9 +415,6 @@
     <!-- ConfigProfileActivity -->
     <string name="title_activity_config_profile">
         Perfil
-    </string>
-    <string name="info_profile_photo">
-        Toque na foto para abrir a galeria ou fotografia.
     </string>
     <string name="name_label">
         Nome:
@@ -445,9 +427,6 @@
     </string>
     <string name="invalid_name">
         Nome inválido.
-    </string>
-    <string name="invalid_config_profile">
-        Um nome válido deve ser fornecido
     </string>
 
     <string name="title_activity_filter_preference">

@@ -19,7 +19,6 @@ class LoginData(
         getAuth().signInWithCredential(credential)
             .addOnCompleteListener { authResult ->
                 saveUidInDatabase(loginpresenter.getContext())
-
                 loginpresenter.onResponseRequestLogin(
                     authResult
                 )

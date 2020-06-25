@@ -42,6 +42,10 @@ interface WineDetailsActivityInterface {
         wineComplement: WineComplement
     )
 
+    fun showRecyclerViewComments(
+        status: Boolean
+    )
+
     fun showProxy(
         status: Boolean
     )

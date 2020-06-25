@@ -14,7 +14,6 @@ class SignUpData(
             email, password
         ).addOnCompleteListener { authResult ->
             saveUidInDatabase(presenter.getContext())
-
             presenter.onResponseRequestSignUp(authResult)
         }
     }

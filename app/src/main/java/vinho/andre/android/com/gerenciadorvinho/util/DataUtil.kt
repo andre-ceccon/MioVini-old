@@ -65,7 +65,7 @@ object DataUtil {
 
             simpleDateFormat.parse(
                 string_date
-            )
+            ) ?: Date()
         } catch (e: Exception) {
             isValid = false
             return Date()

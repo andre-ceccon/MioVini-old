@@ -166,6 +166,12 @@ class WineDetailsActivity :
         }
     }
 
+    private fun teste(
+        id: Int
+    ) {
+        id::class.java
+    }
+
     override fun onResume() {
         super.onResume()
         setTextWine()
@@ -177,15 +183,23 @@ class WineDetailsActivity :
         adapterPurchases?.stopListening()
     }
 
+    override fun showRecyclerViewComments(
+        status: Boolean
+    ) {
+        runOnUiThread {
+            rv_comment.visibility =
+                if (status) View.VISIBLE
+                else View.GONE
+        }
+    }
+
     override fun showProxy(
         status: Boolean
     ) {
         runOnUiThread {
             fl_proxy_container.visibility =
-                if (status)
-                    View.VISIBLE
-                else
-                    View.GONE
+                if (status) View.VISIBLE
+                else View.GONE
 
             purchaseDialogUtil.showProxy(status)
         }

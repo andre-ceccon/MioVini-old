@@ -18,14 +18,8 @@
     </string>
 
     <!-- Image Picker API - Adição e sobreposição de String -->
-    <string name="imagepicker_msg_no_images">
-        There are no images in the gallery.
-    </string>
     <string name="imagepicker_gallery_activity">
         Gallery
-    </string>
-    <string name="imagepicker_cam_photos_activity">
-        Photos MioVini
     </string>
     <string name="imagepicker_selection_limit">
         Only one image can be selected.
@@ -52,9 +46,6 @@
     </string>
 
     <!-- LoginActivity -->
-    <string name="title_activity_login">
-        Login
-    </string>
     <string name="hint_password">
         Password
     </string>
@@ -154,9 +145,6 @@
     <string name="recover_password_going">
         Recovering&#8230;
     </string>
-    <string name="invalid_login_email">
-        Email not found in our database.
-    </string>
     <string name="email_sent">
         Email successfully sent
     </string>
@@ -202,8 +190,8 @@
         Welcome
     </string>
     <string name="alert_message_dialogue_without_wine">
-        There\'re no registered wine(s) to display.
-        Register or change the filter used!
+        There\'re no registered wine(s) to show.
+        Please, register or change the filter used!
     </string>
     <string name="alert_menssage_firt_login">
         You don\'t have any wine registration in your winery, do you want to register now?
@@ -428,9 +416,6 @@
     <string name="title_activity_config_profile">
         Profile
     </string>
-    <string name="info_profile_photo">
-        Touch the photo to open the gallery or photo.
-    </string>
     <string name="name_label">
         Name:
     </string>
@@ -442,9 +427,6 @@
     </string>
     <string name="invalid_name">
         Invalid name.
-    </string>
-    <string name="invalid_config_profile">
-        A valid name must be provided
     </string>
 
     <string name="title_activity_filter_preference">

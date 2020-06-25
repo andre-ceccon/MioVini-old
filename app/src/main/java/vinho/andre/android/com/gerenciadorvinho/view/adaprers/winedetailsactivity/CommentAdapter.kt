@@ -45,6 +45,9 @@ class CommentAdapter(
     override fun onDataChanged() {
         super.onDataChanged()
         view.showProxy(false)
+        if (itemCount > 0) {
+            view.showRecyclerViewComments(true)
+        }
     }
 
     override fun onError(
