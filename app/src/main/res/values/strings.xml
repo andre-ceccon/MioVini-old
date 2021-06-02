@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">MioVini</string>
+
+    <!-- Menu -->
+    <string name="menu_home">Home</string>
+    <string name="menu_add">Add Wine</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_settings">Settings</string>
+
+    <!-- Filter -->
+    <string-array name="sorted_by_array">
+        <item>@string/filter_name</item>
+        <item>@string/filter_Country</item>
+        <item>@string/filter_in_celler</item>
+        <item>@string/filter_bookmarks</item>
+        <item>@string/filter_by_rating</item>
+    </string-array>
+
+    <string name="filter_btn_cancel">Cancelar</string>
+    <string name="filter_btn_confirm">Confirmar</string>
+    <string name="filter_hint_ordened_by">Ordenado por</string>
+    <string name="filter_hint_sorted_by">Classificado por</string>
+
+    <string name="filter_in_celler">Na Adega</string>
+    <string name="filter_bookmarks">Favorito</string>
+    <string name="filter_increasing">Crescente</string>
+    <string name="filter_decreasing">Decrescente</string>
+    <string name="filter_by_rating">Classficação</string>
+    <string name="filter_name">Orderm Alfabética</string>
+    <string name="filter_Country">País de Origem</string>
+
+    <!-- Home card list -->
+    <string name="label_vintage_wine">Safra</string>
+    <string name="label_in_the_cellar">Na Adega</string>
+
+    <string name="imageview_of_wine">Image of Wine</string>
+    <string name="imageview_is_bookmarked">is bookmarked</string>
+</resources>

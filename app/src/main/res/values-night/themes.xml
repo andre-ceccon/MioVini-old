@@ -1,0 +1,77 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MioVini" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorOnSecondaryNight</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariantNight</item>
+        <item name="colorOnPrimary">@color/colorOnPrimaryNight</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorSecondaryNight</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariantNight</item>
+        <item name="colorOnSecondary">@color/colorOnSecondaryNight</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
+    </style>
+
+    <!-- Toolbar -->
+    <style name="Widget.App.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Toolbar" parent="">
+        <item name="colorPrimary">@color/colorPrimaryNight</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariantNight</item>
+        <item name="colorOnPrimary">@color/colorOnSecondaryDay</item>
+    </style>
+
+    <!-- Background screen -->
+    <style name="backgroundColor">
+        <item name="android:background">@color/backgroungNight</item>
+    </style>
+
+    <style name="backgroundColor.card">
+        <item name="android:background">@color/backgroundCardNight</item>
+    </style>
+
+    <style name="backgroundColor.dividerDetailsWine">
+        <item name="android:background">@color/textColorTitleNight</item>
+    </style>
+
+    <!-- Background Buttons -->
+    <style name="backgroundColor.ButtonDelete" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/colorSecondaryVariantNight</item>
+        <item name="rippleColor">@color/colorOnSecondaryDay</item>
+    </style>
+
+    <style name="backgroundColor.ButtonEditar" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/colorSecondaryDay</item>
+        <item name="rippleColor">@color/colorOnSecondaryDay</item>
+    </style>
+
+    <style name="TitleH1">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/textColorTitleNight</item>
+    </style>
+
+    <style name="TitleH2">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorOnSecondaryNight</item>
+    </style>
+
+    <style name="TitleH3">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorOnSecondaryNight</item>
+    </style>
+
+    <style name="TextViewDetalhesForm">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorOnSecondaryNight</item>
+    </style>
+</resources>
