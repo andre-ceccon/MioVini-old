@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/backgroundColor"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="2dp"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toTopOf="@+id/linearLayoutCompat"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/backgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.details.DetailsFragment">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivWine"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="10dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/bntPurchased"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ratingBar"
+            app:shapeAppearance="@style/CircleImageView"
+            app:srcCompat="@drawable/teste" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivWine"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/bntBookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/description_btn_add_bookmark"
+            android:src="@drawable/bookmark_add_24"
+            app:fabSize="auto"
+            app:layout_constraintEnd_toEndOf="@+id/ratingBar"
+            app:layout_constraintStart_toEndOf="@+id/bntPurchased"
+            app:layout_constraintTop_toTopOf="@+id/bntPurchased" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/bntPurchased"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/description_btn_remove_bookmark"
+            android:src="@drawable/shopping_bag_24"
+            app:fabSize="auto"
+            app:layout_constraintEnd_toStartOf="@+id/bntBookmark"
+            app:layout_constraintStart_toStartOf="@+id/ratingBar"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+        <TextView
+            android:id="@+id/labelDataSheet"
+            style="@style/TitleH1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/label_datasheet"
+            app:layout_constraintStart_toStartOf="@+id/ivWine"
+            app:layout_constraintTop_toBottomOf="@+id/bntPurchased" />
+
+        <View
+            android:id="@+id/dividerLabelDataSheet"
+            style="@style/backgroundColor.dividerDetailsWine"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/labelDataSheet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/labelDataSheet"
+            app:layout_constraintTop_toTopOf="@+id/labelDataSheet" />
+
+        <TextView
+            android:id="@+id/labelName"
+            style="@style/TitleH2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/label_name"
+            app:layout_constraintStart_toStartOf="@+id/labelDataSheet"
+            app:layout_constraintTop_toBottomOf="@+id/labelDataSheet" />
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/TextViewDetalhesForm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:maxLines="3"
+            app:layout_constraintEnd_toEndOf="@+id/dividerLabelDataSheet"
+            app:layout_constraintStart_toStartOf="@+id/labelName"
+            app:layout_constraintTop_toBottomOf="@+id/labelName"
+            tools:text="8 Vites Miliasso Piemonde DOC Rosso" />
+
+        <TextView
+            android:id="@+id/labelCountry"
+            style="@style/TitleH2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/label_country"
+            app:layout_constraintStart_toStartOf="@+id/tvCountry"
+            app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+        <TextView
+            android:id="@+id/tvCountry"
+            style="@style/TextViewDetalhesForm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="6dp"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            app:layout_constraintEnd_toStartOf="@+id/labelService"
+            app:layout_constraintStart_toStartOf="@+id/tvName"
+            app:layout_constraintTop_toBottomOf="@+id/labelCountry"
+            tools:text="Itália" />
+
+        <TextView
+            android:id="@+id/labelService"
+            style="@style/TitleH2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_recommended_temperature"
+            app:layout_constraintEnd_toEndOf="@+id/dividerLabelDataSheet"
+            app:layout_constraintTop_toTopOf="@+id/labelCountry" />
+
+        <TextView
+            android:id="@+id/tvService"
+            style="@style/TextViewDetalhesForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:maxLength="3"
+            app:layout_constraintEnd_toEndOf="@+id/labelService"
+            app:layout_constraintStart_toStartOf="@+id/labelService"
+            app:layout_constraintTop_toBottomOf="@+id/labelService"
+            tools:text="17" />
+
+        <TextView
+            android:id="@+id/labelWinery"
+            style="@style/TitleH2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="end"
+            android:text="@string/label_winery"
+            app:layout_constraintStart_toStartOf="@+id/tvCountry"
+            app:layout_constraintTop_toBottomOf="@+id/tvCountry" />
+
+        <TextView
+            android:id="@+id/tvWinery"
+            style="@style/TextViewDetalhesForm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            app:layout_constraintEnd_toEndOf="@+id/dividerLabelDataSheet"
+            app:layout_constraintStart_toStartOf="@+id/labelWinery"
+            app:layout_constraintTop_toBottomOf="@+id/labelWinery"
+            tools:text="Dezzani" />
+
+        <TextView
+            android:id="@+id/labelGrapes"
+            style="@style/TitleH2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/label_grapes"
+            app:layout_constraintStart_toStartOf="@+id/labelDataSheet"
+            app:layout_constraintTop_toBottomOf="@+id/tvWinery" />
+
+        <TextView
+            android:id="@+id/tvGrapes"
+            style="@style/TextViewDetalhesForm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:maxLines="3"
+            app:layout_constraintEnd_toEndOf="@+id/tvName"
+            app:layout_constraintStart_toStartOf="@+id/labelGrapes"
+            app:layout_constraintTop_toBottomOf="@+id/labelGrapes"
+            tools:text="Barbera, Albarossa, Freisa, Merlot, Dolcetto, Bonarda, Syrah" />
+
+        <TextView
+            android:id="@+id/labelHarmonizesWith"
+            style="@style/TitleH2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/label_harmonizes_with"
+            app:layout_constraintStart_toStartOf="@+id/tvGrapes"
+            app:layout_constraintTop_toBottomOf="@+id/tvGrapes" />
+
+        <TextView
+            android:id="@+id/tvHarmonizesWith"
+            style="@style/TextViewDetalhesForm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:maxLines="4"
+            app:layout_constraintEnd_toEndOf="@+id/tvName"
+            app:layout_constraintStart_toStartOf="@+id/labelDataSheet"
+            app:layout_constraintTop_toBottomOf="@+id/labelHarmonizesWith"
+            tools:text="Provado com macarrão com queijo" />
+
+        <TextView
+            android:id="@+id/labelCellar"
+            style="@style/TitleH1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/label_cellar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvHarmonizesWith" />
+
+        <View
+            android:id="@+id/dividerCellar"
+            style="@style/backgroundColor.dividerDetailsWine"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/labelCellar"
+            app:layout_constraintEnd_toStartOf="@+id/labelUpdatedIn"
+            app:layout_constraintStart_toEndOf="@+id/labelCellar"
+            app:layout_constraintTop_toTopOf="@+id/labelCellar"
+            app:layout_constraintVertical_bias="0.529" />
+
+        <TextView
+            android:id="@+id/labelUpdatedIn"
+            style="@style/TitleH3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:text="@string/label_updated_in"
+            app:layout_constraintBottom_toBottomOf="@+id/labelCellar"
+            app:layout_constraintEnd_toStartOf="@+id/tvUpdatedIn"
+            app:layout_constraintTop_toTopOf="@+id/labelCellar" />
+
+        <TextView
+            android:id="@+id/tvUpdatedIn"
+            style="@style/TextViewDetalhesForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/labelUpdatedIn"
+            app:layout_constraintEnd_toEndOf="@+id/tvHarmonizesWith"
+            app:layout_constraintTop_toTopOf="@+id/labelUpdatedIn"
+            tools:text="21/02/2021" />
+
+        <TextView
+            android:id="@+id/labelVintageHistories"
+            style="@style/TitleH2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/label_vintages_already_purchased"
+            app:layout_constraintEnd_toEndOf="@+id/rvVintage"
+            app:layout_constraintStart_toStartOf="@+id/rvVintage"
+            app:layout_constraintTop_toBottomOf="@+id/labelCellar" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvVintage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="5dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineCellar"
+            app:layout_constraintStart_toStartOf="@+id/labelCellar"
+            app:layout_constraintTop_toBottomOf="@+id/labelVintageHistories"
+            tools:itemCount="4"
+            tools:listitem="@layout/row_vintage_details_wine" />
+
+        <TextView
+            android:id="@+id/labelInTheCellar"
+            style="@style/TitleH2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:text="@string/label_in_the_cellar_details"
+            app:layout_constraintBottom_toBottomOf="@+id/rvVintage"
+            app:layout_constraintEnd_toStartOf="@+id/btnAddBottle"
+            app:layout_constraintStart_toEndOf="@+id/btnRemoveBottle"
+            app:layout_constraintTop_toTopOf="@+id/labelVintageHistories"
+            app:layout_constraintVertical_bias="0.3" />
+
+        <TextView
+            android:id="@+id/tvInTheCellar"
+            style="@style/TextViewDetalhesForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:maxLength="5"
+            app:layout_constraintEnd_toEndOf="@+id/labelInTheCellar"
+            app:layout_constraintStart_toStartOf="@+id/labelInTheCellar"
+            app:layout_constraintTop_toBottomOf="@+id/labelInTheCellar"
+            tools:text="100" />
+
+        <ImageButton
+            android:id="@+id/btnRemoveBottle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="2dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/description_btn_remove_bottle_from_the_cellar"
+            app:layout_constraintBottom_toBottomOf="@+id/tvInTheCellar"
+            app:layout_constraintEnd_toStartOf="@+id/labelInTheCellar"
+            app:layout_constraintStart_toStartOf="@+id/guidelineCellar"
+            app:layout_constraintTop_toTopOf="@+id/labelInTheCellar"
+            app:srcCompat="@drawable/remove_circle_30" />
+
+        <ImageButton
+            android:id="@+id/btnAddBottle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/description_btn_add_bottle_from_the_cellar"
+            app:layout_constraintBottom_toBottomOf="@+id/tvInTheCellar"
+            app:layout_constraintEnd_toEndOf="@+id/tvUpdatedIn"
+            app:layout_constraintStart_toEndOf="@+id/labelInTheCellar"
+            app:layout_constraintTop_toTopOf="@+id/labelInTheCellar"
+            app:srcCompat="@drawable/add_circle_24" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineCellar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.502551" />
+
+        <TextView
+            android:id="@+id/labelComments"
+            style="@style/TitleH1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_comments"
+            app:layout_constraintStart_toStartOf="@+id/labelCellar"
+            app:layout_constraintTop_toBottomOf="@+id/tvInTheCellar" />
+
+        <View
+            android:id="@+id/dividerComments"
+            style="@style/backgroundColor.dividerDetailsWine"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/labelComments"
+            app:layout_constraintEnd_toEndOf="@+id/dividerLabelDataSheet"
+            app:layout_constraintStart_toEndOf="@+id/labelComments"
+            app:layout_constraintTop_toTopOf="@+id/labelComments" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvComments"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/dividerLabelDataSheet"
+            app:layout_constraintStart_toStartOf="@+id/labelComments"
+            app:layout_constraintTop_toBottomOf="@+id/labelComments"
+            tools:listitem="@layout/row_comments_details_wine" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/TextViewDetalhesForm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/label_there_are_no_registered_items"
+            app:layout_constraintEnd_toEndOf="@+id/labelVintageHistories"
+            app:layout_constraintStart_toStartOf="@+id/labelVintageHistories"
+            app:layout_constraintTop_toBottomOf="@+id/labelVintageHistories" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

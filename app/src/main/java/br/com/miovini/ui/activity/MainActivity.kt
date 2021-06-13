@@ -2,6 +2,7 @@ package br.com.miovini.ui.activity
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -37,6 +38,12 @@ class MainActivity : AppCompatActivity() {
             AppBarConfiguration(setOf(R.id.navigation_home))
         )
 
+        navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.detailsFragment -> binding.navView.visibility = View.GONE
+                else -> binding.navView.visibility = View.VISIBLE
+            }
+        }
 
         binding.navView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {

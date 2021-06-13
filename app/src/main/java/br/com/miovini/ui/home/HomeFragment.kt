@@ -1,5 +1,7 @@
 package br.com.miovini.ui.home
 
+import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +10,10 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.ConcatAdapter
 import br.com.miovini.R
-import br.com.miovini.databinding.BottomSheetSortBinding
+import br.com.miovini.databinding.DialogSortHomeBinding
 import br.com.miovini.databinding.HomeFragmentBinding
+import br.com.miovini.utils.NavigationExtension.navigateWithAnimations
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class HomeFragment : Fragment() {
@@ -35,26 +37,39 @@ class HomeFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
+
+        homeViewModel.viewFlipperLiveData.observe(
+            viewLifecycleOwner, { viewFliver ->
+                binding.viewFlipperWines.displayedChild = viewFliver
+            }
+        )
+
+        homeViewModel.getWines()
     }
 
     private fun initRecyclerView() {
         with(homeViewModel) {
+            binding.recyclerWine.setHasFixedSize(true)
+            binding.recyclerWine.adapter = homeViewModel.adapter
+
             sortAdapter.sortItemClickListener = { createDialog() }
+
             wineAdapter.wineItemClickListener = {
-                findNavController().navigate(R.id.action_navigation_home_to_detailsFragment)
+                findNavController().navigateWithAnimations(R.id.action_navigation_home_to_detailsFragment)
             }
 
-            binding.recyclerWine.adapter = ConcatAdapter(sortAdapter, wineAdapter)
+            wineAdapter.wineItemLongClickListener = { position ->
+                homeViewModel.enableActionMode(activity = requireActivity(), position = position)
+            }
         }
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        super.onDestroyView(); _binding = null
     }
 
     private fun createDialog() {
-        val bining = BottomSheetSortBinding.inflate(layoutInflater)
+        val bining = DialogSortHomeBinding.inflate(layoutInflater)
         val sortedByArray = resources.getStringArray(R.array.sorted_by_array).apply {
             sortBy { it.replace("\\s", "").length }
         }
@@ -75,4 +90,8 @@ class HomeFragment : Fragment() {
             }
         }
     }
+}
+
+fun Context.isDarkTheme(): Boolean {
+    return this.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
 }

@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">MioVini</string>
+
+    <!-- Bottom Menu -->
+    <string name="menu_home">Home</string>
+    <string name="menu_add">Add Wine</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_settings">Settings</string>
+
+    <!-- Filter Dialog Home -->
+    <string-array name="sorted_by_array">
+        <item>@string/filter_name</item>
+        <item>@string/filter_Country</item>
+        <item>@string/filter_in_cellar</item>
+        <item>@string/filter_bookmarks</item>
+        <item>@string/filter_by_rating</item>
+    </string-array>
+
+    <string name="title_dialog_filtro">Sort</string>
+    <string name="filter_btn_cancel">Cancel</string>
+    <string name="filter_btn_confirm">Confirm</string>
+    <string name="filter_hint_ordened_by">Sorted by</string>
+    <string name="filter_hint_sorted_by">Ranked by</string>
+
+    <string name="filter_by_rating">Rating</string>
+    <string name="filter_bookmarks">Bookmarks</string>
+    <string name="filter_increasing">Crescent</string>
+    <string name="filter_decreasing">Decrescent</string>
+    <string name="filter_name">Alphabetical order</string>
+    <string name="filter_in_cellar">In the cellar</string>
+    <string name="filter_Country">Country of origin</string>
+
+    <!-- Row filter home wine -->
+    <string name="row_sort_text">Sort</string>
+
+    <!-- Row Home card wine -->
+    <string name="label_vintage_wine">Vintage</string>
+    <string name="label_in_the_cellar_home_card">In the Cellar</string>
+
+    <string name="imageview_of_wine">Image of Wine</string>
+    <string name="imageview_is_bookmarked">is bookmarked</string>
+
+    <!-- Details Wine Fragment -->
+    <string name="title_details_wine_fragment">Details Wine</string>
+    <string name="description_btn_add_bookmark">Add wine to bookmarks</string>
+    <string name="description_btn_remove_bookmark">Remove wine to bookmarks</string>
+    <string name="description_btn_add_bottle_from_the_cellar">Add a bottle of wine at the cellar</string>
+    <string name="description_btn_remove_bottle_from_the_cellar">Remove a bottle of wine from the cellar</string>
+
+    <string name="label_name">Name</string>
+    <string name="label_grapes">Grapes</string>
+    <string name="label_cellar">Cellar</string>
+    <string name="label_winery">Winery</string>
+    <string name="label_btn_edit">Edit</string>
+    <string name="label_country">Country</string>
+    <string name="label_bnt_delete">Delete</string>
+    <string name="label_comments">Comments</string>
+    <string name="label_datasheet">DataSheet</string>
+    <string name="label_updated_in">Updated In:</string>
+    <string name="label_harmonizes_with">Harmonizes with</string>
+    <string name="label_recommended_temperature">Service</string>
+    <string name="label_in_the_cellar_details">In the cellar</string>
+    <string name="label_vintages_already_purchased">Vintage histories</string>
+
+    <string name="text_undo_snackbar">Undo</string>
+    <string name="text_added_to_bookmarks">Added to bookmarks</string>
+    <string name="text_removed_of_bookmarks">Removed of bookmarks</string>
+    <string name="label_there_are_no_registered_items">There are no registered items</string>
+</resources>

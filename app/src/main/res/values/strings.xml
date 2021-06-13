@@ -1,38 +1,70 @@
 <resources>
     <string name="app_name">MioVini</string>
 
-    <!-- Menu -->
-    <string name="menu_home">Home</string>
-    <string name="menu_add">Add Wine</string>
-    <string name="menu_search">Search</string>
-    <string name="menu_settings">Settings</string>
+    <!-- Bottom Menu -->
+    <string name="menu_home">Início</string>
+    <string name="menu_add">Adicionar Vinho</string>
+    <string name="menu_search">Pesquisa</string>
+    <string name="menu_settings">Configuração</string>
 
-    <!-- Filter -->
+    <!-- Filter Dialog Home -->
     <string-array name="sorted_by_array">
         <item>@string/filter_name</item>
         <item>@string/filter_Country</item>
-        <item>@string/filter_in_celler</item>
+        <item>@string/filter_in_cellar</item>
         <item>@string/filter_bookmarks</item>
         <item>@string/filter_by_rating</item>
     </string-array>
 
+    <string name="title_dialog_filtro">Filtro</string>
     <string name="filter_btn_cancel">Cancelar</string>
     <string name="filter_btn_confirm">Confirmar</string>
     <string name="filter_hint_ordened_by">Ordenado por</string>
     <string name="filter_hint_sorted_by">Classificado por</string>
 
-    <string name="filter_in_celler">Na Adega</string>
+    <string name="filter_in_cellar">Na Adega</string>
     <string name="filter_bookmarks">Favorito</string>
     <string name="filter_increasing">Crescente</string>
+    <string name="filter_name">Ordem Alfabética</string>
     <string name="filter_decreasing">Decrescente</string>
     <string name="filter_by_rating">Classficação</string>
-    <string name="filter_name">Orderm Alfabética</string>
     <string name="filter_Country">País de Origem</string>
 
-    <!-- Home card list -->
-    <string name="label_vintage_wine">Safra</string>
-    <string name="label_in_the_cellar">Na Adega</string>
+    <!-- Row filter home wine -->
+    <string name="row_sort_text">Filtro</string>
 
-    <string name="imageview_of_wine">Image of Wine</string>
-    <string name="imageview_is_bookmarked">is bookmarked</string>
+    <!-- Row Home card wine -->
+    <string name="label_vintage_wine">Safra</string>
+    <string name="label_in_the_cellar_home_card">Na Adega</string>
+
+    <string name="imageview_of_wine">Imagem do vinho</string>
+    <string name="imageview_is_bookmarked">Está adicionado nos favoritos</string>
+
+    <!-- Details Wine Fragment -->
+    <string name="title_details_wine_fragment">Detalhe Vinho</string>
+
+    <string name="description_btn_add_bookmark">Adicionar Vinho aos Favoritos</string>
+    <string name="description_btn_remove_bookmark">Remover Vinho aos Favoritos</string>
+    <string name="description_btn_add_bottle_from_the_cellar">Adicionar uma garrafa de vinha na adega</string>
+    <string name="description_btn_remove_bottle_from_the_cellar">Remover uma garrafa de vinha da adega</string>
+
+    <string name="label_name">Nome</string>
+    <string name="label_grapes">Uvas</string>
+    <string name="label_cellar">Adega</string>
+    <string name="label_country">Origem</string>
+    <string name="label_winery">Vinícola</string>
+    <string name="label_btn_edit">Editar</string>
+    <string name="label_bnt_delete">Deletar</string>
+    <string name="label_comments">Comentários</string>
+    <string name="label_datasheet">Ficha Técnica</string>
+    <string name="label_updated_in">Atualizada em:</string>
+    <string name="label_harmonizes_with">Harmoniza com</string>
+    <string name="label_in_the_cellar_details">Na Adega</string>
+    <string name="label_recommended_temperature">Serviço</string>
+    <string name="label_vintages_already_purchased">Histórico de Safras</string>
+
+    <string name="text_undo_snackbar">Desfazer</string>
+    <string name="text_added_to_bookmarks">Adicionado aos Favoritos</string>
+    <string name="text_removed_of_bookmarks">Removido dos Favoritos</string>
+    <string name="label_there_are_no_registered_items">Não há itens cadastrados</string>
 </resources>

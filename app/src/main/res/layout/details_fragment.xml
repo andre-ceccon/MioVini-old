@@ -1,424 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scrollView2"
-    style="@style/backgroundColor"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginBottom="4dp"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ViewFlipper
+        android:id="@+id/viewFlipperDetailsWine"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/progressDetails"
+            layout="@layout/include_progressbar" />
+
+        <include
+            android:id="@+id/contentDetails"
+            layout="@layout/content_details_fragment" />
+    </ViewFlipper>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutButtons"
         style="@style/backgroundColor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".ui.details.DetailsFragment">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/ivWine"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_marginStart="10dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ratingBar"
-            app:shapeAppearance="@style/CircleImageView"
-            app:srcCompat="@drawable/teste" />
-
-        <RatingBar
-            android:id="@+id/ratingBar"
-            style="@style/Widget.AppCompat.RatingBar.Indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivWine"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/bntBookmark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:src="@drawable/bookmark_add_24"
-            app:fabSize="auto"
-            app:layout_constraintEnd_toEndOf="@+id/ratingBar"
-            app:layout_constraintStart_toEndOf="@+id/floatingActionButton2"
-            app:layout_constraintTop_toTopOf="@+id/floatingActionButton2"
-            app:maxImageSize="28sp" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="8dp"
-            android:src="@drawable/shopping_bag_24"
-            app:fabSize="auto"
-            app:layout_constraintEnd_toStartOf="@+id/bntBookmark"
-            app:layout_constraintStart_toStartOf="@+id/ratingBar"
-            app:layout_constraintTop_toBottomOf="@+id/ratingBar"
-            app:maxImageSize="28sp" />
-
-        <TextView
-            android:id="@+id/textView7"
-            style="@style/TextViewDetalhesForm"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:gravity="center_vertical"
-            android:maxLines="2"
-            android:text="Dezzani"
-            app:layout_constraintEnd_toEndOf="@+id/divider"
-            app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-        <TextView
-            android:id="@+id/textView4"
-            style="@style/TitleH2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Origem"
-            app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-        <TextView
-            android:id="@+id/textView18"
-            style="@style/TextViewDetalhesForm"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:maxLines="4"
-            android:text="Provado com macarrão com queijo"
-            app:layout_constraintEnd_toEndOf="@+id/textView3"
-            app:layout_constraintStart_toStartOf="@+id/textView12"
-            app:layout_constraintTop_toBottomOf="@+id/textView17" />
-
-        <TextView
-            android:id="@+id/textView17"
-            style="@style/TitleH2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Harmoniza com"
-            app:layout_constraintStart_toStartOf="@+id/textView16"
-            app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-        <TextView
-            android:id="@+id/textView5"
-            style="@style/TextViewDetalhesForm"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="6dp"
-            android:gravity="center_vertical"
-            android:maxLines="2"
-            android:text="Itália"
-            app:layout_constraintEnd_toStartOf="@+id/textView8"
-            app:layout_constraintStart_toStartOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-        <TextView
-            android:id="@+id/textView"
-            style="@style/TitleH2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Nome"
-            app:layout_constraintStart_toStartOf="@+id/textView12"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-        <TextView
-            android:id="@+id/textView6"
-            style="@style/TitleH2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:gravity="end"
-            android:text="Produtor"
-            app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-        <TextView
-            android:id="@+id/textView8"
-            style="@style/TitleH2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Temperatura Ideal"
-            app:layout_constraintEnd_toEndOf="@+id/divider"
-            app:layout_constraintTop_toTopOf="@+id/textView4" />
-
-        <TextView
-            android:id="@+id/textView12"
-            style="@style/TitleH1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Ficha Técnica"
-            app:layout_constraintStart_toStartOf="@+id/ivWine"
-            app:layout_constraintTop_toBottomOf="@+id/floatingActionButton2" />
-
-        <TextView
-            android:id="@+id/textView16"
-            style="@style/TextViewDetalhesForm"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:maxLines="3"
-            android:text="Barbera, Albarossa, Freisa, Merlot, Dolcetto, Bonarda, Syrah"
-            app:layout_constraintEnd_toEndOf="@+id/textView3"
-            app:layout_constraintStart_toStartOf="@+id/textView15"
-            app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-        <TextView
-            android:id="@+id/textView3"
-            style="@style/TextViewDetalhesForm"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:maxLines="3"
-            android:text="8 Vites Miliasso Piemonde DOC Rosso"
-            app:layout_constraintEnd_toEndOf="@+id/divider"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <TextView
-            android:id="@+id/textView9"
-            style="@style/TextViewDetalhesForm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:maxLength="3"
-            android:text="17"
-            app:layout_constraintEnd_toEndOf="@+id/textView8"
-            app:layout_constraintStart_toStartOf="@+id/textView8"
-            app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-        <TextView
-            android:id="@+id/textView15"
-            style="@style/TitleH2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Uvas"
-            app:layout_constraintStart_toStartOf="@+id/textView12"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-        <View
-            android:id="@+id/divider"
-            style="@style/backgroundColor.dividerDetailsWine"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView12"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView12"
-            app:layout_constraintTop_toTopOf="@+id/textView12" />
-
-        <TextView
-            android:id="@+id/textView14"
-            style="@style/TitleH2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Histórico de Safras"
-            app:layout_constraintEnd_toEndOf="@+id/rvVintage"
-            app:layout_constraintStart_toStartOf="@+id/rvVintage"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvVintage"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="3dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toStartOf="@+id/guideline9"
-            app:layout_constraintStart_toStartOf="@+id/textView13"
-            app:layout_constraintTop_toBottomOf="@+id/textView14"
-            tools:itemCount="4"
-            tools:listitem="@layout/row_vintage_details_wine" />
-
-        <TextView
-            android:id="@+id/textView13"
-            style="@style/TitleH1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Adega"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView18" />
-
-        <TextView
-            android:id="@+id/textView10"
-            style="@style/TitleH2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:layout_marginEnd="3dp"
-            android:text="Na Adega"
-            app:layout_constraintBottom_toBottomOf="@+id/rvVintage"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton2"
-            app:layout_constraintStart_toEndOf="@+id/imageButton"
-            app:layout_constraintTop_toTopOf="@+id/textView14"
-            app:layout_constraintVertical_bias="0.20" />
-
-        <TextView
-            android:id="@+id/textView11"
-            style="@style/TextViewDetalhesForm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:maxLength="5"
-            android:text="100"
-            app:layout_constraintEnd_toEndOf="@+id/textView10"
-            app:layout_constraintStart_toStartOf="@+id/textView10"
-            app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:layout_marginEnd="2dp"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/textView11"
-            app:layout_constraintEnd_toStartOf="@+id/textView10"
-            app:layout_constraintStart_toStartOf="@+id/guideline9"
-            app:layout_constraintTop_toTopOf="@+id/textView10"
-            app:srcCompat="@drawable/remove_circle_30" />
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/textView11"
-            app:layout_constraintEnd_toEndOf="@+id/textView22"
-            app:layout_constraintStart_toEndOf="@+id/textView10"
-            app:layout_constraintTop_toTopOf="@+id/textView10"
-            app:srcCompat="@drawable/add_circle_24" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.502551" />
-
-        <TextView
-            android:id="@+id/textView21"
-            style="@style/TitleH3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
-            android:text="Atualizada:"
-            app:layout_constraintBottom_toBottomOf="@+id/textView13"
-            app:layout_constraintEnd_toStartOf="@+id/textView22"
-            app:layout_constraintTop_toTopOf="@+id/textView13" />
-
-        <TextView
-            android:id="@+id/textView22"
-            style="@style/TextViewDetalhesForm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:text="21/02/2021"
-            app:layout_constraintBottom_toBottomOf="@+id/textView21"
-            app:layout_constraintEnd_toEndOf="@+id/textView18"
-            app:layout_constraintTop_toTopOf="@+id/textView21" />
-
-        <TextView
-            android:id="@+id/textView19"
-            style="@style/TitleH1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Comentários"
-            app:layout_constraintStart_toStartOf="@+id/textView13"
-            app:layout_constraintTop_toBottomOf="@+id/rvVintage" />
-
-        <View
-            android:id="@+id/divider2"
-            style="@style/backgroundColor.dividerDetailsWine"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView13"
-            app:layout_constraintEnd_toStartOf="@+id/textView21"
-            app:layout_constraintStart_toEndOf="@+id/textView13"
-            app:layout_constraintTop_toTopOf="@+id/textView13"
-            app:layout_constraintVertical_bias="0.529" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvComments"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="@+id/divider"
-            app:layout_constraintStart_toStartOf="@+id/textView19"
-            app:layout_constraintTop_toBottomOf="@+id/textView19"
-            tools:listitem="@layout/row_comments_details_wine" />
-
-        <View
-            android:id="@+id/divider3"
-            style="@style/backgroundColor.dividerDetailsWine"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:layout_marginStart="5dp"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="@+id/textView19"
-            app:layout_constraintEnd_toEndOf="@+id/divider"
-            app:layout_constraintStart_toEndOf="@+id/textView19"
-            app:layout_constraintTop_toTopOf="@+id/textView19" />
+        android:weightSum="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button"
+            android:id="@+id/btnEdit"
             style="@style/backgroundColor.ButtonEditar"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginStart="8dp"
             android:layout_marginEnd="4dp"
-            android:layout_marginBottom="8dp"
-            android:layout_weight="1"
-            android:text="Editar"
-            android:textColor="@color/white"
-            app:cornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline9"
-            app:layout_constraintStart_toStartOf="@+id/textView19"
-            app:layout_constraintTop_toBottomOf="@+id/rvComments"
-            app:layout_constraintVertical_bias="1.0" />
+            android:layout_weight="0.5"
+            android:text="@string/label_btn_edit"
+            app:cornerRadius="10dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button2"
+            android:id="@+id/btnDelete"
             style="@style/backgroundColor.ButtonDelete"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="8dp"
-            android:layout_weight="1"
-            android:text="Deletar"
-            android:textColor="@color/white"
-            app:cornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/rvComments"
-            app:layout_constraintStart_toStartOf="@+id/guideline9"
-            app:layout_constraintTop_toBottomOf="@+id/rvComments" />
+            android:layout_marginEnd="8dp"
+            android:layout_weight="0.5"
+            android:text="@string/label_bnt_delete"
+            app:cornerRadius="10dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

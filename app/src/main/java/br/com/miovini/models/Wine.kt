@@ -11,7 +11,13 @@ data class Wine(
     val pahtImage: String,
     val wineHouse: String,
     val bookmark: Boolean
-)
+) {
+    var selectedItem: Boolean = false
+
+    override fun toString(): String {
+        return "Wine(wineId=$wineId, name='$name', rating=$rating, country='$country', vintage='$vintage', pahtImage='$pahtImage', wineHouse='$wineHouse', bookmark=$bookmark, selectedItem=$selectedItem)"
+    }
+}
 
 fun genetareWineList(): List<Wine> {
     val tempList: MutableList<Wine> = mutableListOf()

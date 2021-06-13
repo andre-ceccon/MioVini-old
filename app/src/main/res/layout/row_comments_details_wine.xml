@@ -16,9 +16,9 @@
     app:layout_constraintTop_toTopOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/backgroundColor.card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        style="@style/backgroundColor.card"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/frameLayout"
         app:layout_constraintStart_toStartOf="parent">
@@ -31,10 +31,10 @@
             android:layout_marginTop="8dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="21/06/2021"
             app:layout_constraintEnd_toEndOf="@+id/tvComment"
             app:layout_constraintStart_toStartOf="@+id/tvComment"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="21/06/2021" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvComment"
@@ -48,12 +48,12 @@
             android:ellipsize="end"
             android:justificationMode="inter_word"
             android:maxLines="2"
-            android:text="Frutado no nariz. Na boca suave semelhante ao Soliera e ao CL. Tempranillo jovem e simples."
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDataComment"
-            tools:targetApi="o" />
+            tools:targetApi="o"
+            tools:text="Frutado no nariz. Na boca suave semelhante ao Soliera e ao CL. Tempranillo jovem e simples." />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
