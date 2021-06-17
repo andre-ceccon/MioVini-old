@@ -37,7 +37,6 @@
     <string name="label_vintage_wine">Safra</string>
     <string name="label_in_the_cellar_home_card">Na Adega</string>
 
-    <string name="imageview_of_wine">Imagem do vinho</string>
     <string name="imageview_is_bookmarked">Está adicionado nos favoritos</string>
 
     <!-- Details Wine Fragment -->
@@ -67,4 +66,13 @@
     <string name="text_added_to_bookmarks">Adicionado aos Favoritos</string>
     <string name="text_removed_of_bookmarks">Removido dos Favoritos</string>
     <string name="label_there_are_no_registered_items">Não há itens cadastrados</string>
+
+    <!-- Purchased Fragment -->
+    <string name="label_store">Loja</string>
+    <string name="label_price">Preço</string>
+    <string name="label_vintage">Safra</string>
+    <string name="label_note">Observação</string>
+    <string name="label_amount">Quantidade</string>
+    <string name="label_purchased_date">Data compra</string>
+    <string name="label_new_comment">Novo comentário</string>
 </resources>

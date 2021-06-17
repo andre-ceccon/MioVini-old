@@ -60,8 +60,6 @@
         <item name="colorControlActivated">@color/colorOnPrimaryNight</item>
     </style>
 
-    <style name="AppTheme.FullScreenDialog" parent="Theme.MaterialComponents.DayNight" />
-
     <style name="TitleH1">
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>

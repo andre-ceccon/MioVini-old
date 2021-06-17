@@ -3,8 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="darkRed">#870000</color>
-
     <!-- Cores tema Oficiais -->
     <color name="colorPrimaryDay">#a90000</color>
     <color name="colorOnPrimaryDay">#e17777</color>

@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/navigation_home">
+<navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/mobile_nav_home">
 
-    <fragment
-        android:id="@+id/navigation_home"
-        android:name="br.com.miovini.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/home_fragment">
-
-        <action
-            android:id="@+id/action_navigation_home_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/detailsFragment"
-        android:name="br.com.miovini.ui.details.DetailsFragment"
-        android:label="@string/title_details_wine_fragment"
-        tools:layout="@layout/details_fragment" />
+    <include app:graph="@navigation/mobile_nav_home" />
+    <include app:graph="@navigation/mobile_nav_registration" />
 </navigation>

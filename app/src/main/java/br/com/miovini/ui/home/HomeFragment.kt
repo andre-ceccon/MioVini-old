@@ -29,6 +29,7 @@ class HomeFragment : Fragment() {
     ): View {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = HomeFragmentBinding.inflate(inflater, container, false)
+        homeViewModel.getWines()
         return binding.root
     }
 
@@ -43,8 +44,6 @@ class HomeFragment : Fragment() {
                 binding.viewFlipperWines.displayedChild = viewFliver
             }
         )
-
-        homeViewModel.getWines()
     }
 
     private fun initRecyclerView() {

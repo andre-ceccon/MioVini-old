@@ -289,13 +289,26 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="5dp"
             android:orientation="horizontal"
-            android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toStartOf="@+id/guidelineCellar"
             app:layout_constraintStart_toStartOf="@+id/labelCellar"
             app:layout_constraintTop_toBottomOf="@+id/labelVintageHistories"
             tools:itemCount="4"
             tools:listitem="@layout/row_vintage_details_wine" />
+
+        <TextView
+            android:id="@+id/tvNoRegisteredItemsVintage"
+            style="@style/TextViewDetalhesForm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/label_there_are_no_registered_items"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/labelVintageHistories"
+            app:layout_constraintStart_toStartOf="@+id/labelVintageHistories"
+            app:layout_constraintTop_toBottomOf="@+id/labelVintageHistories"
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/labelInTheCellar"
@@ -393,16 +406,20 @@
             tools:listitem="@layout/row_comments_details_wine" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvNoRegisteredItemsComments"
             style="@style/TextViewDetalhesForm"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="8dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/label_there_are_no_registered_items"
-            app:layout_constraintEnd_toEndOf="@+id/labelVintageHistories"
-            app:layout_constraintStart_toStartOf="@+id/labelVintageHistories"
-            app:layout_constraintTop_toBottomOf="@+id/labelVintageHistories" />
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/dividerComments"
+            app:layout_constraintStart_toStartOf="@+id/labelComments"
+            app:layout_constraintTop_toBottomOf="@+id/labelComments"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

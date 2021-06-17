@@ -1,7 +1,6 @@
 package br.com.miovini.ui.details
 
 import android.os.Bundle
-import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +9,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import br.com.miovini.R
 import br.com.miovini.databinding.DetailsFragmentBinding
 import br.com.miovini.databinding.DialogCommentDetailsWineBinding
@@ -17,6 +17,7 @@ import br.com.miovini.models.genetareCommentist
 import br.com.miovini.models.genetareVintageist
 import br.com.miovini.ui.details.adapter.CommentAdapter
 import br.com.miovini.ui.details.adapter.VintageAdapter
+import br.com.miovini.utils.NavigationExtension.navigateWithAnimations
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.*
@@ -36,7 +37,6 @@ class DetailsFragment : Fragment() {
                 withContext(Dispatchers.Main) {
                     commentAdapter.notifyDataSetChanged()
                     vintageAdapter.notifyDataSetChanged()
-                    Log.d("Testando", binding.viewFlipperDetailsWine.childCount.toString())
                     binding.viewFlipperDetailsWine.displayedChild = 1
                 }
             }
@@ -103,11 +103,16 @@ class DetailsFragment : Fragment() {
             )?.show()
         }
 
+        binding.contentDetails.bntPurchased.setOnClickListener {
+            findNavController().navigateWithAnimations(R.id.action_detailsFragment_to_purshasedFragment)
+        }
+
         GlobalScope.launch { loadUserData() }
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        _binding = null
         sneackBar?.dismiss()
     }
 

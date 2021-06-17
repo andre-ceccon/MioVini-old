@@ -2,17 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_home"
+        android:id="@+id/mobile_nav_home"
         android:icon="@drawable/home_24"
         android:title="@string/menu_home" />
 
     <item
         android:id="@+id/nav_search"
         android:icon="@drawable/search_white_24"
+        android:menuCategory="secondary"
         android:title="@string/menu_search" />
 
     <item
-        android:id="@+id/nav_add"
+        android:id="@+id/mobile_nav_registration"
         android:icon="@drawable/add_circle_24"
         android:title="@string/menu_add" />
 

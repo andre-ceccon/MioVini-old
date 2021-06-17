@@ -37,7 +37,6 @@
     <string name="label_vintage_wine">Vintage</string>
     <string name="label_in_the_cellar_home_card">In the Cellar</string>
 
-    <string name="imageview_of_wine">Image of Wine</string>
     <string name="imageview_is_bookmarked">is bookmarked</string>
 
     <!-- Details Wine Fragment -->
@@ -66,4 +65,13 @@
     <string name="text_added_to_bookmarks">Added to bookmarks</string>
     <string name="text_removed_of_bookmarks">Removed of bookmarks</string>
     <string name="label_there_are_no_registered_items">There are no registered items</string>
+
+    <!-- Purchased Fragment -->
+    <string name="label_note">Note</string>
+    <string name="label_store">Store</string>
+    <string name="label_price">Price</string>
+    <string name="label_amount">Amount</string>
+    <string name="label_vintage">Vintage</string>
+    <string name="label_purchased_date">Purchased Date</string>
+    <string name="label_new_comment">New comment</string>
 </resources>
