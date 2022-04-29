@@ -16,6 +16,8 @@
 
         <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
         <item name="windowActionModeOverlay">true</item>
+
+        <item name="materialCalendarTheme">@style/ThemeOverlay.App.DatePicker</item>
     </style>
 
     <!-- Toolbar -->
@@ -58,6 +60,17 @@
     <!-- Star`s color activerd RatingBar -->
     <style name="RatingBar">
         <item name="colorControlActivated">@color/colorOnPrimaryNight</item>
+    </style>
+
+    <!-- DatePicker Style -->
+    <style name="ThemeOverlay.App.DatePicker" parent="@style/ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="colorPrimary">@color/colorOnPrimaryNight</item>
+        <item name="colorOnPrimary">@color/backgroundCardDay</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
+    </style>
+
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSize">16dp</item>
     </style>
 
     <style name="TitleH1">

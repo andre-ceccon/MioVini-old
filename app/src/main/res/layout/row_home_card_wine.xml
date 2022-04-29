@@ -127,7 +127,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="2dp"
-            android:text="@string/label_vintage_wine"
+            android:text="@string/label_vintage_wine_home_card"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toTopOf="@+id/labelCellar" />
@@ -161,7 +161,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
-            android:contentDescription="@string/imageview_is_bookmarked"
+            android:contentDescription="@string/imageview_is_bookmarked_home_card"
             android:src="@drawable/bookmark_border_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvVintage"
             app:layout_constraintEnd_toEndOf="@+id/tvWineName"

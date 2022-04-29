@@ -32,7 +32,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="8dp"
             android:gravity="center"
-            android:text="@string/label_purchased_date"
+            android:text="@string/label_purchased_date_purchased_details"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/guideline9"
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
-            android:text="@string/label_price"
+            android:text="@string/label_price_purchased_details"
             app:layout_constraintBottom_toBottomOf="@+id/labelPurchasedDate"
             app:layout_constraintEnd_toEndOf="@+id/tvPrice"
             app:layout_constraintStart_toStartOf="@+id/tvPrice"
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
             android:layout_marginEnd="3dp"
-            android:text="@string/label_vintage"
+            android:text="@string/label_vintage_purchased_details"
             app:layout_constraintBottom_toBottomOf="@+id/labelPurchasedDate"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
@@ -105,7 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="3dp"
-            android:text="@string/label_amount"
+            android:text="@string/label_amount_purchased_details"
             app:layout_constraintBottom_toBottomOf="@+id/labelPurchasedDate"
             app:layout_constraintEnd_toStartOf="@+id/guidelineMiddle"
             app:layout_constraintHorizontal_bias="0.0"
@@ -129,7 +129,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/label_store"
+            android:text="@string/label_store_purchased_details"
             app:layout_constraintStart_toStartOf="@+id/tvName"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -153,7 +153,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
-            android:text="@string/label_note"
+            android:text="@string/label_note_purchased_details"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvVintage" />
 

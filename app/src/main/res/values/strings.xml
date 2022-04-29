@@ -3,11 +3,11 @@
 
     <!-- Bottom Menu -->
     <string name="menu_home">Início</string>
-    <string name="menu_add">Adicionar Vinho</string>
     <string name="menu_search">Pesquisa</string>
+    <string name="menu_add">Adicionar Vinho</string>
     <string name="menu_settings">Configuração</string>
 
-    <!-- Filter Dialog Home -->
+    <!-- Filter Home Dialog -->
     <string-array name="sorted_by_array">
         <item>@string/filter_name</item>
         <item>@string/filter_Country</item>
@@ -31,48 +31,79 @@
     <string name="filter_Country">País de Origem</string>
 
     <!-- Row filter home wine -->
-    <string name="row_sort_text">Filtro</string>
+    <string name="row_sort_text_home_card">Filtro</string>
 
     <!-- Row Home card wine -->
-    <string name="label_vintage_wine">Safra</string>
+    <string name="label_vintage_wine_home_card">Safra</string>
     <string name="label_in_the_cellar_home_card">Na Adega</string>
 
-    <string name="imageview_is_bookmarked">Está adicionado nos favoritos</string>
+    <string name="imageview_is_bookmarked_home_card">Está adicionado nos favoritos</string>
 
     <!-- Details Wine Fragment -->
     <string name="title_details_wine_fragment">Detalhe Vinho</string>
 
-    <string name="description_btn_add_bookmark">Adicionar Vinho aos Favoritos</string>
-    <string name="description_btn_remove_bookmark">Remover Vinho aos Favoritos</string>
-    <string name="description_btn_add_bottle_from_the_cellar">Adicionar uma garrafa de vinha na adega</string>
-    <string name="description_btn_remove_bottle_from_the_cellar">Remover uma garrafa de vinha da adega</string>
+    <string name="description_btn_add_bookmark_details_wine">Adicionar Vinho aos Favoritos</string>
+    <string name="description_btn_remove_bookmark_details_wine">Remover Vinho aos Favoritos</string>
+    <string name="description_btn_add_bottle_from_the_cellar_details_wine">Adicionar uma garrafa de vinha na adega</string>
+    <string name="description_btn_remove_bottle_from_the_cellar_details_wine">Remover uma garrafa de vinha da adega</string>
 
-    <string name="label_name">Nome</string>
-    <string name="label_grapes">Uvas</string>
-    <string name="label_cellar">Adega</string>
-    <string name="label_country">Origem</string>
-    <string name="label_winery">Vinícola</string>
-    <string name="label_btn_edit">Editar</string>
-    <string name="label_bnt_delete">Deletar</string>
-    <string name="label_comments">Comentários</string>
-    <string name="label_datasheet">Ficha Técnica</string>
-    <string name="label_updated_in">Atualizada em:</string>
-    <string name="label_harmonizes_with">Harmoniza com</string>
-    <string name="label_in_the_cellar_details">Na Adega</string>
-    <string name="label_recommended_temperature">Serviço</string>
-    <string name="label_vintages_already_purchased">Histórico de Safras</string>
+    <string name="label_name_details_wine">Nome</string>
+    <string name="label_grapes_details_wine">Uvas</string>
+    <string name="label_cellar_details_wine">Adega</string>
+    <string name="label_country_details_wine">Origem</string>
+    <string name="label_winery_details_wine">Vinícola</string>
+    <string name="label_btn_edit_details_wine">Editar</string>
+    <string name="label_bnt_delete_details_wine">Deletar</string>
+    <string name="label_comments_details_wine">Comentários</string>
+    <string name="label_in_the_cellar_details_wine">Na Adega</string>
+    <string name="label_datasheet_details_wine">Ficha Técnica</string>
+    <string name="label_updated_in_details_wine">Atualizada em:</string>
+    <string name="label_harmonizes_with_details_wine">Harmoniza com</string>
+    <string name="label_recommended_temperature_details_wine">Serviço</string>
+    <string name="label_vintages_already_purchased_details_wine">Histórico de Safras</string>
 
-    <string name="text_undo_snackbar">Desfazer</string>
-    <string name="text_added_to_bookmarks">Adicionado aos Favoritos</string>
-    <string name="text_removed_of_bookmarks">Removido dos Favoritos</string>
-    <string name="label_there_are_no_registered_items">Não há itens cadastrados</string>
+    <string name="text_undo_snackbar_details_wine">Desfazer</string>
+    <string name="text_added_to_bookmarks_details_wine">Adicionado aos Favoritos</string>
+    <string name="text_removed_of_bookmarks_details_wine">Removido dos Favoritos</string>
+    <string name="label_there_are_no_registered_items_details_wine">Não há itens cadastrados</string>
+
+    <!-- Comment details dialog -->
+    <string name="label_btn_edit_comments_details">Editar</string>
+    <string name="label_bnt_delete_comments_details">Deletar</string>
 
     <!-- Purchased Fragment -->
-    <string name="label_store">Loja</string>
-    <string name="label_price">Preço</string>
-    <string name="label_vintage">Safra</string>
-    <string name="label_note">Observação</string>
-    <string name="label_amount">Quantidade</string>
-    <string name="label_purchased_date">Data compra</string>
-    <string name="label_new_comment">Novo comentário</string>
+    <string name="label_store_purchased_details">Loja</string>
+    <string name="label_price_purchased_details">Preço</string>
+    <string name="label_vintage_purchased_details">Safra</string>
+    <string name="label_note_purchased_details">Observação</string>
+    <string name="label_amount_purchased_details">Quantidade</string>
+    <string name="label_purchased_date_purchased_details">Data compra</string>
+    <string name="label_new_comment_purchased_details">Novo comentário</string>
+
+    <!-- Wine Registration Fragment -->
+    <string name="label_name_wine_registration">Nome</string>
+    <string name="label_grapes_wine_registration">Uvas</string>
+    <string name="label_cellar_wine_registration">Adega</string>
+    <string name="label_country_wine_registration">Origem</string>
+    <string name="label_winery_wine_registration">Vinícola</string>
+    <string name="label_bnt_save_wine_registration">Salvar</string>
+    <string name="label_comments_wine_registration">Comentários</string>
+    <string name="label_in_the_cellar_wine_registration">Na Adega</string>
+    <string name="label_datasheet_wine_registration">Ficha Técnica</string>
+    <string name="label_new_comment_wine_registration">Novo comentário</string>
+    <string name="label_harmonizes_with_wine_registration">Harmoniza com</string>
+    <string name="label_recommended_temperature_wine_registration">Serviço</string>
+
+    <string name="description_btnAddPhoto_wine_registration">Adicionar foto ao registro</string>
+    <string name="description_btnPurchased_wine_registration">Botão para adicionar histórico de compra do vinho</string>
+
+    <!-- Registration Purchase Fragment -->
+    <string name="label_price_purchase_registration">Preço</string>
+    <string name="label_vintage_purchase_registration">Safra</string>
+    <string name="label_note_purchase_registration">Observação</string>
+    <string name="label_amount_purchase_registration">Quantidade</string>
+    <string name="label_store_purchase_registration">Nome da Loja</string>
+    <string name="label_btn_attach_informations">Anexar informações</string>
+    <string name="label_purchased_date_purchase_registration">Data compra</string>
+    <string name="label_new_comment_purchase_registration">Novo comentário</string>
 </resources>

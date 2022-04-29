@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:contentDescription="@string/description_btn_add_bookmark"
+            android:contentDescription="@string/description_btn_add_bookmark_details_wine"
             android:src="@drawable/bookmark_add_24"
             app:fabSize="auto"
             app:layout_constraintEnd_toEndOf="@+id/ratingBar"
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="8dp"
-            android:contentDescription="@string/description_btn_remove_bookmark"
+            android:contentDescription="@string/description_btn_remove_bookmark_details_wine"
             android:src="@drawable/shopping_bag_24"
             app:fabSize="auto"
             app:layout_constraintEnd_toStartOf="@+id/bntBookmark"
@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/label_datasheet"
+            android:text="@string/label_datasheet_details_wine"
             app:layout_constraintStart_toStartOf="@+id/ivWine"
             app:layout_constraintTop_toBottomOf="@+id/bntPurchased" />
 
@@ -96,7 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="@string/label_name"
+            android:text="@string/label_name_details_wine"
             app:layout_constraintStart_toStartOf="@+id/labelDataSheet"
             app:layout_constraintTop_toBottomOf="@+id/labelDataSheet" />
 
@@ -118,7 +118,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="@string/label_country"
+            android:text="@string/label_country_details_wine"
             app:layout_constraintStart_toStartOf="@+id/tvCountry"
             app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
@@ -141,7 +141,7 @@
             style="@style/TitleH2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/label_recommended_temperature"
+            android:text="@string/label_recommended_temperature_details_wine"
             app:layout_constraintEnd_toEndOf="@+id/dividerLabelDataSheet"
             app:layout_constraintTop_toTopOf="@+id/labelCountry" />
 
@@ -164,7 +164,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:gravity="end"
-            android:text="@string/label_winery"
+            android:text="@string/label_winery_details_wine"
             app:layout_constraintStart_toStartOf="@+id/tvCountry"
             app:layout_constraintTop_toBottomOf="@+id/tvCountry" />
 
@@ -187,7 +187,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="@string/label_grapes"
+            android:text="@string/label_grapes_details_wine"
             app:layout_constraintStart_toStartOf="@+id/labelDataSheet"
             app:layout_constraintTop_toBottomOf="@+id/tvWinery" />
 
@@ -209,7 +209,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/label_harmonizes_with"
+            android:text="@string/label_harmonizes_with_details_wine"
             app:layout_constraintStart_toStartOf="@+id/tvGrapes"
             app:layout_constraintTop_toBottomOf="@+id/tvGrapes" />
 
@@ -232,7 +232,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/label_cellar"
+            android:text="@string/label_cellar_details_wine"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvHarmonizesWith" />
 
@@ -255,7 +255,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
-            android:text="@string/label_updated_in"
+            android:text="@string/label_updated_in_details_wine"
             app:layout_constraintBottom_toBottomOf="@+id/labelCellar"
             app:layout_constraintEnd_toStartOf="@+id/tvUpdatedIn"
             app:layout_constraintTop_toTopOf="@+id/labelCellar" />
@@ -277,7 +277,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="@string/label_vintages_already_purchased"
+            android:text="@string/label_vintages_already_purchased_details_wine"
             app:layout_constraintEnd_toEndOf="@+id/rvVintage"
             app:layout_constraintStart_toStartOf="@+id/rvVintage"
             app:layout_constraintTop_toBottomOf="@+id/labelCellar" />
@@ -303,7 +303,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="@string/label_there_are_no_registered_items"
+            android:text="@string/label_there_are_no_registered_items_details_wine"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/labelVintageHistories"
             app:layout_constraintStart_toStartOf="@+id/labelVintageHistories"
@@ -317,7 +317,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
             android:layout_marginEnd="3dp"
-            android:text="@string/label_in_the_cellar_details"
+            android:text="@string/label_in_the_cellar_details_wine"
             app:layout_constraintBottom_toBottomOf="@+id/rvVintage"
             app:layout_constraintEnd_toStartOf="@+id/btnAddBottle"
             app:layout_constraintStart_toEndOf="@+id/btnRemoveBottle"
@@ -343,7 +343,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginEnd="2dp"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/description_btn_remove_bottle_from_the_cellar"
+            android:contentDescription="@string/description_btn_remove_bottle_from_the_cellar_details_wine"
             app:layout_constraintBottom_toBottomOf="@+id/tvInTheCellar"
             app:layout_constraintEnd_toStartOf="@+id/labelInTheCellar"
             app:layout_constraintStart_toStartOf="@+id/guidelineCellar"
@@ -356,7 +356,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/description_btn_add_bottle_from_the_cellar"
+            android:contentDescription="@string/description_btn_add_bottle_from_the_cellar_details_wine"
             app:layout_constraintBottom_toBottomOf="@+id/tvInTheCellar"
             app:layout_constraintEnd_toEndOf="@+id/tvUpdatedIn"
             app:layout_constraintStart_toEndOf="@+id/labelInTheCellar"
@@ -376,7 +376,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/label_comments"
+            android:text="@string/label_comments_details_wine"
             app:layout_constraintStart_toStartOf="@+id/labelCellar"
             app:layout_constraintTop_toBottomOf="@+id/tvInTheCellar" />
 
@@ -413,7 +413,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="8dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="@string/label_there_are_no_registered_items"
+            android:text="@string/label_there_are_no_registered_items_details_wine"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/dividerComments"

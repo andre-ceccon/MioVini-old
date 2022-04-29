@@ -98,8 +98,8 @@ class DetailsFragment : Fragment() {
             if (sneackBar == null) sneackBar = createSnackBar()
 
             sneackBar?.setText(
-                if (isBookmark) getString(R.string.text_added_to_bookmarks)
-                else getString(R.string.text_removed_of_bookmarks)
+                if (isBookmark) getString(R.string.text_added_to_bookmarks_details_wine)
+                else getString(R.string.text_removed_of_bookmarks_details_wine)
             )?.show()
         }
 
@@ -135,7 +135,7 @@ class DetailsFragment : Fragment() {
                 TypedValue.COMPLEX_UNIT_SP, 15f
             )
 
-            setAction(R.string.text_undo_snackbar) { changeIconBookMarks() }
+            setAction(R.string.text_undo_snackbar_details_wine) { changeIconBookMarks() }
 
             setActionTextColor(
                 ContextCompat.getColor(requireContext(), R.color.colorOnSecondaryNight)

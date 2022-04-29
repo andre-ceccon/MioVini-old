@@ -7,7 +7,7 @@
     <string name="menu_search">Search</string>
     <string name="menu_settings">Settings</string>
 
-    <!-- Filter Dialog Home -->
+    <!-- Filter Home Dialog -->
     <string-array name="sorted_by_array">
         <item>@string/filter_name</item>
         <item>@string/filter_Country</item>
@@ -31,47 +31,78 @@
     <string name="filter_Country">Country of origin</string>
 
     <!-- Row filter home wine -->
-    <string name="row_sort_text">Sort</string>
+    <string name="row_sort_text_home_card">Sort</string>
 
     <!-- Row Home card wine -->
-    <string name="label_vintage_wine">Vintage</string>
+    <string name="label_vintage_wine_home_card">Vintage</string>
     <string name="label_in_the_cellar_home_card">In the Cellar</string>
 
-    <string name="imageview_is_bookmarked">is bookmarked</string>
+    <string name="imageview_is_bookmarked_home_card">is bookmarked</string>
 
     <!-- Details Wine Fragment -->
     <string name="title_details_wine_fragment">Details Wine</string>
-    <string name="description_btn_add_bookmark">Add wine to bookmarks</string>
-    <string name="description_btn_remove_bookmark">Remove wine to bookmarks</string>
-    <string name="description_btn_add_bottle_from_the_cellar">Add a bottle of wine at the cellar</string>
-    <string name="description_btn_remove_bottle_from_the_cellar">Remove a bottle of wine from the cellar</string>
+    <string name="description_btn_add_bookmark_details_wine">Add wine to bookmarks</string>
+    <string name="description_btn_remove_bookmark_details_wine">Remove wine to bookmarks</string>
+    <string name="description_btn_add_bottle_from_the_cellar_details_wine">Add a bottle of wine at the cellar</string>
+    <string name="description_btn_remove_bottle_from_the_cellar_details_wine">Remove a bottle of wine from the cellar</string>
 
-    <string name="label_name">Name</string>
-    <string name="label_grapes">Grapes</string>
-    <string name="label_cellar">Cellar</string>
-    <string name="label_winery">Winery</string>
-    <string name="label_btn_edit">Edit</string>
-    <string name="label_country">Country</string>
-    <string name="label_bnt_delete">Delete</string>
-    <string name="label_comments">Comments</string>
-    <string name="label_datasheet">DataSheet</string>
-    <string name="label_updated_in">Updated In:</string>
-    <string name="label_harmonizes_with">Harmonizes with</string>
-    <string name="label_recommended_temperature">Service</string>
-    <string name="label_in_the_cellar_details">In the cellar</string>
-    <string name="label_vintages_already_purchased">Vintage histories</string>
+    <string name="label_name_details_wine">Name</string>
+    <string name="label_grapes_details_wine">Grapes</string>
+    <string name="label_cellar_details_wine">Cellar</string>
+    <string name="label_winery_details_wine">Winery</string>
+    <string name="label_btn_edit_details_wine">Edit</string>
+    <string name="label_country_details_wine">Country</string>
+    <string name="label_bnt_delete_details_wine">Delete</string>
+    <string name="label_comments_details_wine">Comments</string>
+    <string name="label_datasheet_details_wine">DataSheet</string>
+    <string name="label_updated_in_details_wine">Updated In:</string>
+    <string name="label_in_the_cellar_details_wine">In the cellar</string>
+    <string name="label_harmonizes_with_details_wine">Harmonizes with</string>
+    <string name="label_recommended_temperature_details_wine">Service</string>
+    <string name="label_vintages_already_purchased_details_wine">Vintage histories</string>
 
-    <string name="text_undo_snackbar">Undo</string>
-    <string name="text_added_to_bookmarks">Added to bookmarks</string>
-    <string name="text_removed_of_bookmarks">Removed of bookmarks</string>
-    <string name="label_there_are_no_registered_items">There are no registered items</string>
+    <string name="text_undo_snackbar_details_wine">Undo</string>
+    <string name="text_added_to_bookmarks_details_wine">Added to bookmarks</string>
+    <string name="text_removed_of_bookmarks_details_wine">Removed of bookmarks</string>
+    <string name="label_there_are_no_registered_items_details_wine">There are no registered items</string>
+
+    <!-- Comment details dialog -->
+    <string name="label_btn_edit_comments_details">Edit</string>
+    <string name="label_bnt_delete_comments_details">Delete</string>
 
     <!-- Purchased Fragment -->
-    <string name="label_note">Note</string>
-    <string name="label_store">Store</string>
-    <string name="label_price">Price</string>
-    <string name="label_amount">Amount</string>
-    <string name="label_vintage">Vintage</string>
-    <string name="label_purchased_date">Purchased Date</string>
-    <string name="label_new_comment">New comment</string>
+    <string name="label_note_purchased_details">Note</string>
+    <string name="label_store_purchased_details">Store</string>
+    <string name="label_price_purchased_details">Price</string>
+    <string name="label_amount_purchased_details">Amount</string>
+    <string name="label_vintage_purchased_details">Vintage</string>
+    <string name="label_new_comment_purchased_details">New comment</string>
+    <string name="label_purchased_date_purchased_details">Purchased Date</string>
+
+    <!-- Wine Registration Fragment -->
+    <string name="label_name_wine_registration">Name</string>
+    <string name="label_bnt_save_wine_registration">Save</string>
+    <string name="label_grapes_wine_registration">Grapes</string>
+    <string name="label_cellar_wine_registration">Cellar</string>
+    <string name="label_winery_wine_registration">Winery</string>
+    <string name="label_country_wine_registration">Country</string>
+    <string name="label_comments_wine_registration">Comments</string>
+    <string name="label_datasheet_wine_registration">DataSheet</string>
+    <string name="label_new_comment_wine_registration">New comment</string>
+    <string name="label_in_the_cellar_wine_registration">In the cellar</string>
+    <string name="label_harmonizes_with_wine_registration">Harmonizes with</string>
+    <string name="label_recommended_temperature_wine_registration">Service</string>
+
+    <string name="description_btnAddPhoto_wine_registration">Add photo in record</string>
+    <string name="description_btnPurchased_wine_registration">Button to add wine purchase history</string>
+
+    <!-- Registration Purchase Fragment -->
+    <string name="label_note_purchase_registration">Note</string>
+    <string name="label_price_purchase_registration">Price</string>
+    <string name="label_amount_purchase_registration">Amount</string>
+    <string name="label_vintage_purchase_registration">Vintage</string>
+    <string name="label_store_purchase_registration">Nome da Loja</string>
+    <string name="label_btn_attach_informations">Attach informations</string>
+    <string name="label_new_comment_purchase_registration">New comment</string>
+    <string name="label_purchased_date_purchase_registration">Purchased Date</string>
 </resources>

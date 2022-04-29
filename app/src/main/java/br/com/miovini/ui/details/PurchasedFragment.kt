@@ -28,7 +28,6 @@ class PurchasedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        toolbar?.subtitle = "Vinho 1"
         adapter.submitList(
             listOf(
                 Purhased(

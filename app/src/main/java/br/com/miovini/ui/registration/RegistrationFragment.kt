@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import br.com.miovini.databinding.RegistrationFragmentBinding
+import br.com.miovini.utils.NavigationExtension.navigateWithAnimations
 import com.blankj.utilcode.util.ToastUtils
 
 class RegistrationFragment : Fragment() {
@@ -14,6 +16,8 @@ class RegistrationFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var viewModel: RegistrationViewModel
     private var _binding: RegistrationFragmentBinding? = null
+
+    private val args by lazy { RegistrationFragmentArgs.fromBundle(requireArguments()) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,13 +32,18 @@ class RegistrationFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
-            bntAddPhoto.setOnClickListener {
+            btnAddPhoto.setOnClickListener {
                 sivWine.visibility = if (sivWine.isVisible)
                     View.GONE
-                else{
+                else {
                     ToastUtils.showShort("Processo de tirar a foto")
                     View.VISIBLE
                 }
+            }
+
+            btnPurchased.setOnClickListener {
+                val action = RegistrationFragmentDirections.actionRegistrationFragmentToPurchasedRegistrationFragment()
+                findNavController().navigateWithAnimations(action)
             }
         }
     }

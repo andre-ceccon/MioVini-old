@@ -38,7 +38,6 @@ class HomeFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
-
         homeViewModel.viewFlipperLiveData.observe(
             viewLifecycleOwner, { viewFliver ->
                 binding.viewFlipperWines.displayedChild = viewFliver

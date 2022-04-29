@@ -9,6 +9,23 @@
         android:id="@+id/registrationFragment"
         android:name="br.com.miovini.ui.registration.RegistrationFragment"
         android:label="Registration Wine"
-        tools:layout="@layout/registration_fragment" />
+        tools:layout="@layout/registration_fragment">
+
+        <action
+            android:id="@+id/action_registrationFragment_to_purchasedRegistrationFragment"
+            app:destination="@id/purchasedRegistrationFragment" />
+
+        <argument
+            android:name="aa"
+            android:defaultValue="bb"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/purchasedRegistrationFragment"
+        android:name="br.com.miovini.ui.registration.PurchasedRegistrationFragment"
+        android:label="Registration Purchase"
+        tools:layout="@layout/fragment_purchased_registration" />
 
 </navigation>
